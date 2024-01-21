@@ -1,8 +1,20 @@
-# React + Vite
+# COMPONENTES FIJOS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HEADER
 
-Currently, two official plugins are available:
+FOOTER
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# COMPONENTES ASIGNADOS 2ª TANDA
+
+<!-- GABRIEL -->
+ICONO INICIO (COMPONENTE EJERCICIO) 
+
+<!-- HUGO -->
+ICONO FILTRO (MODAL PARA ELEGIR FILTROS)
+
+<!-- DANI -->
+ICONO CREACIÓN EJERCICIO (COMPONENTE FORMULARIO, RUTA ADMINPAGE)
+
+<!-- EZEQUIEL  -->
+ICONO PERFIL (COMPONENTE FORMULARIO EDICIÓN DE PERFIL, RUTA PROFILEPAGE)

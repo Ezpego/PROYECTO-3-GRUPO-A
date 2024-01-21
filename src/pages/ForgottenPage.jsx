@@ -1,9 +1,11 @@
+import ForgottenPassword from "../componets/ForgottenPassword/ForgottenPassword";
+
 const ForgottenPage = () => {
 
     return (
-        <div>
-            <p>Olvido de contraseña </p>
-        </div>
+        <>
+            <ForgottenPassword />
+        </>
     )
 
 }
