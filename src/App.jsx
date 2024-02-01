@@ -9,6 +9,7 @@ import ReactivatePage from "./pages/ReactivatePage";
 import RegisterPage from "./pages/RegisterPage";
 import AdminPage from "./pages/AdminPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   // !Intento de pasar como props una función a la ruta, no funciona.
@@ -30,6 +31,7 @@ function App() {
         <Route path="/user/:userId/editProfile" element={<ProfilePage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
+      <Footer />
     </>
   );
 }
