@@ -89,3 +89,95 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+
+
+
+
+
+// import { useState, useContext } from 'react';
+// import UserContext from '../../context/UserContext';
+// import { useNavigate } from 'react-router-dom';
+
+// const LoginForm = () => {
+// const { handleUser } = useContext(UserContext);
+// const [formData, setFormData] = useState({ email: '', password: '' });
+// const urlRaiz = import.meta.env.VITE_REACT_APP_URL_RAIZ;
+// const navigate = useNavigate();
+
+// const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     try {
+//     const response = await fetch(`${urlRaiz}/users/login`, {
+//         method: 'POST',
+//         headers: {
+//         'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(formData),
+//     });
+
+//     if (response.ok) {
+//         const { token } = await response.json();
+//         console.log('Token: ', token);
+
+//         localStorage.setItem('token', token);
+
+//         const userDataResponse = await fetch(`${urlRaiz}/users/data`, {
+//         method: 'GET',
+//         headers: {
+//             'Authorization': `Bearer ${token}`, 
+//         },
+//         });
+
+//         if (userDataResponse.ok) {
+//         const userData = await userDataResponse.json();
+//         handleUser(userData);
+//         navigate('/user/:userId/editProfile');
+//         console.log('Datos del usuario almacenados en el contexto:', userData);
+//         } else {
+//         console.error('Error al obtener datos del usuario');
+//         }
+//     } else {
+//         console.error('Autenticación fallida');
+//     }
+//     } catch (error) {
+//     console.error('Error al procesar la autenticación', error);
+//     }
+// };
+
+// const handleChange = (e) => {
+//     setFormData({
+//     ...formData,
+//     [e.target.name]: e.target.value,
+//     });
+// };
+
+// return (
+//     <form onSubmit={handleSubmit}>
+//     <label>
+//         Email:
+//         <input
+//         type="email"
+//         name="email"
+//         value={formData.email}
+//         onChange={handleChange}
+//         required
+//         />
+//     </label>
+//     <label>
+//         Password:
+//         <input
+//         type="password"
+//         name="password"
+//         value={formData.password}
+//         onChange={handleChange}
+//         required
+//         />
+//     </label>
+//     <button type="submit">Iniciar sesión</button>
+//     </form>
+//   );
+// };
+
+// export default LoginForm;

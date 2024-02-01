@@ -1,19 +1,29 @@
-import { RxExit } from "react-icons/rx";
-import { useContext } from "react";
-import TokenContext from "../../context/TokenContext";
+// import { RxExit } from "react-icons/rx";
+// import { useContext } from "react";
+// import TokenContext from "../../context/TokenContext";
+import ProfileIcon from "../ProfileIcon/ProfileIcon";
+import { useNavigate } from "react-router-dom";
+
 
 const NavBar = () => {
-  const { tokenUpdate } = useContext(TokenContext);
 
-  const handleExitButton = () => {
-    tokenUpdate("");
-  };
+    const navigate = useNavigate();
 
-  return (
+
+    const handleViewProfileClick = () => {
+    navigate('/user/:userId/editProfile');  
+    };
+
+
+
+return (
     <>
-      <RxExit onClick={handleExitButton} />
+        <ProfileIcon
+        onViewProfileClick={handleViewProfileClick}
+        />
+
     </>
-  );
+);
 };
 
 export default NavBar;

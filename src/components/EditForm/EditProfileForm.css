@@ -1,0 +1,15 @@
+.error-message {
+    color: #ff0000; /* Color rojo para los mensajes de error */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.stored-date{
+    COLOR: grey;
+}
+
+.ReactModal__Content {
+    width: 50%;  /* Ajusta el ancho del modal según tus necesidades */
+    height: 50%; /* Ajusta la altura del modal según tus necesidades */
+    margin: auto; /* Centra el modal horizontalmente */
+  }
