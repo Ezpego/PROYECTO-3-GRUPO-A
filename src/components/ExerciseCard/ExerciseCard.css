@@ -1,0 +1,13 @@
+.cardContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%; /* Puedes ajustar el ancho máximo según tus necesidades */
+  }
+  
+  .cardContainer img {
+    width: 50%;
+    max-height: 200px; /* Altura máxima de la imagen */
+    object-fit: cover; /* Ajusta el tamaño de la imagen manteniendo la proporción */
+    margin-bottom: 10px;
+  }

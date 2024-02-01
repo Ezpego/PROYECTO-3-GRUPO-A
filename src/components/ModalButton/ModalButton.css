@@ -1,0 +1,42 @@
+ModalButton.css .modal-button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .modal-button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: url("filter.jpg") no-repeat center center;
+    background-size: 50px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .modal-content label {
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .modal-content button {
+    display: block;
+    margin: 10px auto;
+  }
+  
+  .close-button {
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
