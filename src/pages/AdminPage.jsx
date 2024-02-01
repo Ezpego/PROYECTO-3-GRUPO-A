@@ -1,13 +1,13 @@
-
+import { useLocation } from "react-router-dom";
 
 const AdminPage = () => {
-
-    return (
-        <>
-            <p>Admin Page</p>
-        </>
-    )
-
-}
+  const { state } = useLocation();
+  console.log(state);
+  return (
+    <>
+      <p>Admin Page </p>
+    </>
+  );
+};
 
 export default AdminPage;
