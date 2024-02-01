@@ -1,13 +1,11 @@
-import ForgottenPassword from "../componets/ForgottenPassword/ForgottenPassword";
+import ForgottenPassword from "../components/ForgottenPassword/ForgottenPassword";
 
 const ForgottenPage = () => {
-
-    return (
-        <>
-            <ForgottenPassword />
-        </>
-    )
-
-}
+  return (
+    <>
+      <ForgottenPassword />
+    </>
+  );
+};
 
 export default ForgottenPage;

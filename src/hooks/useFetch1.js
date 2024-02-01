@@ -9,14 +9,24 @@ export const registerUserService = async ({ name, email, password }) => {
       },
       body: JSON.stringify({ name, email, password }),
     });
-    console.log("response", response);
+
+    console.log("Response status:", response.status);
+
     if (!response.ok) {
-      throw new Error("error comunication");
+      const errorMessage = await response.text();
+      console.error("Error message from server:", errorMessage);
+
+      if (response.status === 409) {
+        throw new Error("El correo electrónico ya está en uso");
+      } else {
+        throw new Error("Error de comunicación");
+      }
     }
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
+
+    const data = await response.text();
+    console.log("Data from server:", data);
   } catch (err) {
-    // console.error("Error:", err);  este es el error que me daba unexpected token...
+    console.error("Error:", err);
+    throw err;
   }
 };
