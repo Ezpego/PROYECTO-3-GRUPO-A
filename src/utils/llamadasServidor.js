@@ -12,14 +12,14 @@ export async function llamadaServidor(
             body: formDataToSend,
         });
         if (!response.ok) {
-            const data = await response.json();
-            console.log(data);
-            throw new Error(`Error: ${data.status} - ${data.message}`);
+            const result = await response.json();
+            console.log(result);
+            throw new Error(`Error: ${result.status} - ${result.message}`);
         }
 
-        const data = await response.json();
+        const result = await response.json();
 
-        return data;
+        return result;
     } catch (error) {
         console.error("Error en la llamada: ", error.message);
         if (error instanceof Error) {
