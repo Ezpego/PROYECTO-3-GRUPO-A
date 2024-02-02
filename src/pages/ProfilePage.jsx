@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PropTypes from 'prop-types';
 import EditProfileForm from "../components/EditForm/EditProfileForm";
 import UserProfileDetails from "../components/UserProfileDetails/UserProfileDetails";
 
@@ -47,7 +46,6 @@ const ProfilePage = () => {
 
             console.log('newToken', data.newToken);
             if (data.newToken) {
-                // Si hay un nuevo token en la respuesta, actualizar el token en el localStorage
                 localStorage.setItem('token', data.newToken);
             }
             console.log('DATA RESPONSE DANI', data);
@@ -103,8 +101,5 @@ const ProfilePage = () => {
         );
     }
 
-ProfilePage.propTypes = {
-    onUpdateProfile: PropTypes.func,
-};
 
 export default ProfilePage;

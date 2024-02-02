@@ -4,8 +4,6 @@ import TokenContext from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 
 
-import PropTypes from 'prop-types';
-
 const ProfileIcon = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const {userData, error, clearError, tokenUpdate} = useContext(TokenContext);
@@ -54,15 +52,6 @@ const ProfileIcon = () => {
       </div>
     </div>
   );
-};
-
-ProfileIcon.propTypes = {
-  onLogout: PropTypes.func,
-  onEditProfileClick: PropTypes.func,
-  onViewProfileClick: PropTypes.func,
-  user: PropTypes.shape({
-    profile_image_url: PropTypes.string,
-  }),
 };
 
 export default ProfileIcon;
