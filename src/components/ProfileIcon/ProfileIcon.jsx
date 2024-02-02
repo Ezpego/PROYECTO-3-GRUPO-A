@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 
-const ProfileIcon = ({ onViewProfileClick }) => {
+const ProfileIcon = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const {userData, error, clearError, tokenUpdate} = useContext(TokenContext);
   const navigate = useNavigate();
@@ -17,6 +17,11 @@ const ProfileIcon = ({ onViewProfileClick }) => {
     clearError();
   };
 
+  // const handleViewProfileClick = () => {
+  //   handleMenuOpen();
+  //   navigate('/user/:userId/editProfile');  
+  //   };
+
   const handleExitButton = () => {
     tokenUpdate("");
     navigate('/');
@@ -24,7 +29,7 @@ const ProfileIcon = ({ onViewProfileClick }) => {
 
   const handleViewProfileDetails = () => {
     handleMenuOpen();
-    onViewProfileClick();
+    navigate('/user/:userId/editProfile');
   }
 
   return (
