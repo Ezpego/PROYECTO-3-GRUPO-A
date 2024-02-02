@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import PropTypes from 'prop-types';
 
-const ProfileIcon = ({ onViewProfileClick }) => {
+
   const [menuOpen, setMenuOpen] = useState(false);
   const {userData, error, clearError, tokenUpdate} = useContext(TokenContext);
   const navigate = useNavigate();
@@ -24,7 +24,6 @@ const ProfileIcon = ({ onViewProfileClick }) => {
 
   const handleViewProfileDetails = () => {
     handleMenuOpen();
-    onViewProfileClick();
   }
 
   return (
