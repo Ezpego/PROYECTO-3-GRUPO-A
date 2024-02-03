@@ -3,19 +3,22 @@ import { registerUserService } from "../hooks/useFetch1";
 import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [error, setError] = useState("");
+
   const handleForm = async (e) => {
     e.preventDefault();
     setError("");
+
     if (password !== password2) {
-      setError("password do not match");
+      setError("Las contraseñas no coinciden");
       return;
     }
+
     if (
       !password ||
       password.length < 8 ||
@@ -29,18 +32,24 @@ const RegisterPage = () => {
 
     try {
       await registerUserService({ name, email, password });
-      // navigate("/login"); PARA CUANDO ESTEN ENSAMBLADAS LAS PAGINAS
+      navigate("/");
     } catch (error) {
-      setError(error.message);
+      if (error.message === "El correo electrónico ya está en uso") {
+        setError(
+          "El correo electrónico ya está en uso. Por favor, elige otro."
+        );
+      } else {
+        setError(error.message);
+      }
     }
   };
 
   return (
     <section>
-      <h1>register</h1>
+      <h1>Registro</h1>
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Nombre</label>
           <input
             type="text"
             id="name"
@@ -50,7 +59,7 @@ const RegisterPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Correo Electrónico</label>
           <input
             type="email"
             id="email"
@@ -60,7 +69,7 @@ const RegisterPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             type="password"
             id="password"
@@ -70,7 +79,7 @@ const RegisterPage = () => {
           />
         </fieldset>
         <fieldset>
-          <label htmlFor="password2"> Repeat password</label>
+          <label htmlFor="password2">Repetir Contraseña</label>
           <input
             type="password"
             id="password2"
@@ -79,8 +88,12 @@ const RegisterPage = () => {
             onChange={(e) => setPassword2(e.target.value)}
           />
         </fieldset>
-        <button>Send</button>
-        {error ? <p>{error}</p> : null}
+        <p>
+          la contraseña debe contener al menos una mayúscula , un nº y 8
+          caracteres.
+        </p>
+        <button>Enviar</button>
+        {error && <p>{error}</p>}
       </form>
     </section>
   );

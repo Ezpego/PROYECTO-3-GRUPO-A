@@ -56,16 +56,16 @@ const ModalButton = ({ buttonContext }) => {
 
         const data = await response.json();
         setMuscleGroupOptions(
-          data.muscle ? data.muscle[0].map((group) => group.name) : []
+          data.muscle ? data.muscle.map((group) => group.name) : []
         );
+
         setExerciseTypeOptions(
-          data.typology ? data.typology[0].map((typology) => typology.name) : []
+          data.typology ? data.typology.map((typology) => typology.name) : []
         );
-        console.log(data);
 
         setDifficultyLevelOptions(
           data.difficulty_level
-            ? data.difficulty_level[0].map((level) => level)
+            ? data.difficulty_level.map((level) => level)
             : []
         );
       } catch (error) {
