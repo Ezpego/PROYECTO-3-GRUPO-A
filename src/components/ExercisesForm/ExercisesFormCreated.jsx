@@ -18,18 +18,15 @@ const FormExercises = ({ onSubmit }) => {
     useEffect(() => {
         const filtros = async () => {
             try {
-                const urlObjetivo = "/filter";
-                const opciones = {
-                    "Content-Type": "multipart/form-data",
-                    authorization:
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6IlVTVUFSSU8gMiIsImlhdCI6MTcwNjQ3MDE1OCwiZXhwIjoxNzA3MDc0OTU4fQ.D5nTsXpcVtaRweVmRvo-z6vvZksKBRTqBo2hFNjkajk",
-                };
-
-                const result = await llamadaServidor(
-                    urlObjetivo,
-                    "GET",
-                    opciones
-                );
+                const response = await fetch("http://localhost:3000/filter", {
+                    method: "GET",
+                    headers: {
+                        authorization:
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6IngiLCJpc0FkbWluaXN0cmF0b3IiOjAsImlhdCI6MTcwNjk5NDQ1NiwiZXhwIjoxNzA3NTk5MjU2fQ.rBz1_2-NcFbeR6HzIkBy6DqIq-BqNWSY4yveXMBYs8w",
+                    },
+                });
+                const result = await response.json();
+                console.log(result);
                 setData(result);
             } catch (error) {
                 console.error("Error. ", error);
@@ -50,37 +47,37 @@ const FormExercises = ({ onSubmit }) => {
         reader.readAsDataURL(file);
     };
 
-    onSubmit = (data) => {
-        console.log("Datos: ", data);
-        console.log(data.photo[0]);
-        const sendExercice = async () => {
-            const urlObjetivo = "/exercises";
-            const opciones = {
-                authorization:
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRlcm1pbmF0b3IiLCJpYXQiOjE3MDY2MDI3MzAsImV4cCI6MTcwNzIwNzUzMH0.-AIiB0ROCF9Ri29H1FUwpfx6frxfKV3nYvLlDoqfe0E",
-            };
-            const formDataToSend = new FormData();
-            formDataToSend.append("photo", data.photo[0]);
-            Object.entries(data).forEach(([key, value]) => {
-                if (key !== "photo") {
-                    formDataToSend.append(key, value);
-                }
-            });
+    // onSubmit = (data) => {
+    //     console.log("Datos: ", data);
+    //     console.log(data.photo[0]);
+    //     const sendExercice = async () => {
+    //         const urlObjetivo = "/exercises";
+    //         const opciones = {
+    //             authorization:
+    //                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRlcm1pbmF0b3IiLCJpc0FkbWluaXN0cmF0b3IiOjEsImlhdCI6MTcwNjk4NjM1MiwiZXhwIjoxNzA3NTkxMTUyfQ.OB9EH7Y3qzGQlgFvgTQwzwyEDiJEoiwwzvSMZOWxt3k",
+    //         };
+    //         const formDataToSend = new FormData();
+    //         formDataToSend.append("photo", data.photo[0]);
+    //         Object.entries(data).forEach(([key, value]) => {
+    //             if (key !== "photo") {
+    //                 formDataToSend.append(key, value);
+    //             }
+    //         });
 
-            const result = await llamadaServidor(
-                urlObjetivo,
-                "POST",
-                opciones,
-                formDataToSend
-            );
+    //         const result = await llamadaServidor(
+    //             urlObjetivo,
+    //             "POST",
+    //             opciones,
+    //             formDataToSend
+    //         );
 
-            console.log(result);
-        };
+    //         console.log(result);
+    //     };
 
-        sendExercice();
-        reset();
-        setPreviewSrc();
-    };
+    //     sendExercice();
+    //     reset();
+    //     setPreviewSrc();
+    // };
 
     return (
         <>

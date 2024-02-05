@@ -137,8 +137,8 @@ export const TokenProvider = ({ children }) => {
                     setError(null);
                     setError("Error al obtener los datos del usuario");
                 }
-            } catch (error) {
-                console.error("Error en la llamada Fetch:", error);
+            } catch (err) {
+                console.error("Error en la llamada Fetch:", err);
                 setUserData("");
                 setError("Error en la llamada Fetch");
             }
