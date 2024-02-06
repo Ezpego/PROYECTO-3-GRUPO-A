@@ -1,14 +1,12 @@
-import { useContext} from 'react';
-import PropTypes from 'prop-types';
+import { useContext } from "react";
+import PropTypes from "prop-types";
 import TokenContext from "../../context/TokenContext";
 
-
 const UserProfileDetails = ({ onEditProfileClick }) => {
-  const {userData} = useContext(TokenContext);
-
+  const { userData } = useContext(TokenContext);
 
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const options = { year: "numeric", month: "numeric", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
@@ -33,7 +31,9 @@ const UserProfileDetails = ({ onEditProfileClick }) => {
           <strong>DNI:</strong> {userData.dni}
         </div>
         <div>
-          <strong>Fecha de Nacimiento:</strong> {formatDate(userData.birth_date)}
+          <strong>Fecha de Nacimiento:</strong>{" "}
+          {formatDate(userData.birth_date)}
+          {/* <strong>Fecha de Nacimiento:</strong> {userData.birth_date} */}
         </div>
         <div>
           <strong>Email:</strong> {userData.email}
@@ -49,9 +49,9 @@ const UserProfileDetails = ({ onEditProfileClick }) => {
 
 UserProfileDetails.propTypes = {
   onEditProfileClick: PropTypes.func,
-  onUpdateProfile: PropTypes.func, 
-    errors: PropTypes.string,
-    userData: PropTypes.shape({
+  onUpdateProfile: PropTypes.func,
+  errors: PropTypes.string,
+  userData: PropTypes.shape({
     name: PropTypes.string,
     last_name: PropTypes.string,
     dni: PropTypes.string,
