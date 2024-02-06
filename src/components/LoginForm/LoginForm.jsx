@@ -23,7 +23,7 @@ const LoginForm = () => {
 
       if (prueba.message) {
         navigate("/users/reactivate_account", {
-          state: { userData: prueba.email },
+          state: prueba.email,
         });
       }
       if (!prueba.ok) {
@@ -31,6 +31,7 @@ const LoginForm = () => {
       }
       if (prueba.token) {
         tokenUpdate(prueba.token);
+        console.log("este es token que mando a actualizar", prueba.token);
       }
     }
   };
@@ -90,11 +91,6 @@ const LoginForm = () => {
 
 export default LoginForm;
 
-
-
-
-
-
 // import { useState, useContext } from 'react';
 // import UserContext from '../../context/UserContext';
 // import { useNavigate } from 'react-router-dom';
@@ -126,7 +122,7 @@ export default LoginForm;
 //         const userDataResponse = await fetch(`${urlRaiz}/users/data`, {
 //         method: 'GET',
 //         headers: {
-//             'Authorization': `Bearer ${token}`, 
+//             'Authorization': `Bearer ${token}`,
 //         },
 //         });
 
