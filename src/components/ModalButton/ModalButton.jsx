@@ -34,6 +34,8 @@ const ModalButton = ({ buttonContext }) => {
 
   const handleApplyFilters = () => {
     console.log("Filters applied:", selectedFilters);
+    // añadido Gabisas
+
     closeModal();
   };
 
