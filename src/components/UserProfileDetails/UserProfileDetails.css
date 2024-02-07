@@ -6,27 +6,26 @@
     max-width: 400px;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profile-image-container {
+}
+
+.profile-image-container {
     width: 120px;
     overflow: hidden;
-  }
-  
-  .profile-image {
+}
+
+.profile-image {
     width: 100%;
     height: auto;
-  }
-  
-  .user-details {
+}
+
+.user-details {
     padding: 16px;
-  }
-  
-  .user-details h2 {
+}
+
+.user-details h2 {
     margin-bottom: 12px;
-  }
-  
-  .user-details div {
+}
+
+.user-details div {
     margin-bottom: 8px;
-  }
-  
+}
