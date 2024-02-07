@@ -1,6 +1,7 @@
 import { receiveExerciseList } from "../../utils/consultasServidor";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import ExerciseCard from "../ExerciseCard/ExerciseCard";
+import TokenContext from "../../context/TokenContext";
 
 const ExercisesList = () => {
   const [exercises, setExercises] = useState([]);
@@ -9,8 +10,9 @@ const ExercisesList = () => {
   const [favouriteUser, setFavouriteUser] = useState({});
   const [typologyarray, setTypologyArray] = useState([]);
   const [muscleGroupArray, setMuscleGroupArray] = useState([]);
+  const { token} = useContext(TokenContext);
 
-  const token = localStorage.getItem("token");
+
 
 
   useEffect(() => {

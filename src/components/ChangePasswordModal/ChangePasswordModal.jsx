@@ -3,10 +3,11 @@ import Modal from "react-modal";
 import PropTypes from "prop-types";
 import TokenContext from "../../context/TokenContext";
 
+
 Modal.setAppElement("#root");
 
 const ChangePasswordModal = ({ isOpen, onClose }) => {
-  const { userData } = useContext(TokenContext);
+  const { token, setToken, userData } = useContext(TokenContext);
   const [emailFromServer, setEmailFromServer] = useState("");
 
   console.log("EMAILFROMSERVERMODAL", emailFromServer);
@@ -25,7 +26,6 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
   });
   const userId = userData.id;
   const urlRaiz = import.meta.env.VITE_REACT_APP_URL_RAIZ;
-  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const getEmail = async () => {
@@ -132,6 +132,8 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
           console.log("newToken", data.newToken);
           if (data.newToken) {
             localStorage.setItem("token", data.newToken);
+            setToken(data.newToken);
+            
           }
 
           setSuccessMessage("Contraseña cambiada con éxito");
