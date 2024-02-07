@@ -13,7 +13,7 @@ import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
-    <>
+    <div id="main-content">
       {/* <UserProvider>   */}
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -25,7 +25,7 @@ function App() {
       </Routes>
       <Footer />
       {/* </UserProvider>   */}
-    </>
+    </div>
   );
 }
 

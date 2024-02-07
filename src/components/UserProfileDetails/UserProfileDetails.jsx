@@ -32,8 +32,7 @@ const UserProfileDetails = ({ onEditProfileClick }) => {
         </div>
         <div>
           <strong>Fecha de Nacimiento:</strong>{" "}
-          {formatDate(userData.birth_date)}
-          {/* <strong>Fecha de Nacimiento:</strong> {userData.birth_date} */}
+          {userData.birth_date ? formatDate(userData.birth_date) : null}
         </div>
         <div>
           <strong>Email:</strong> {userData.email}
