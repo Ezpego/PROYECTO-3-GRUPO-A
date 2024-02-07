@@ -1,6 +1,5 @@
 import { receiveExerciseList } from "../../utils/consultasServidor";
-import { useContext, useEffect, useState } from "react";
-import TokenContext from "../../context/TokenContext";
+import { useEffect, useState } from "react";
 import ExerciseCard from "../ExerciseCard/ExerciseCard";
 
 const ExercisesList = () => {
@@ -10,8 +9,9 @@ const ExercisesList = () => {
   const [favouriteUser, setFavouriteUser] = useState({});
   const [typologyarray, setTypologyArray] = useState([]);
   const [muscleGroupArray, setMuscleGroupArray] = useState([]);
-  const { token, setToken, tokenUpdate, userData, isAdmin } =
-    useContext(TokenContext);
+
+  const token = localStorage.getItem("token");
+
 
   useEffect(() => {
     const fetchData = async () => {
