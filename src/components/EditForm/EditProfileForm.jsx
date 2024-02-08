@@ -14,6 +14,8 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
   const [emailFromServer, setEmailFromServer] = useState("");
   const [formErrors, setFormErrors] = useState(errors);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+
   const [isChangePasswordModalOpen, setIsChangePasswordModalOpen] =
     useState(false);
   const [editedData, setEditedData] = useState({
@@ -100,9 +102,21 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
     setShowEmail(!showEmail);
   };
 
+
   const handleChange = (e) => {
     if (e.target.name === "photo") {
       const file = e.target.files[0];
+  
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setPreviewImage(reader.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setPreviewImage(null);
+      }
+  
       setSelectedFile(file);
     } else {
       setEditedData({
@@ -111,6 +125,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
       });
     }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -162,6 +177,29 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
       }
     } catch (error) {
       console.error("Error en la función handleSubmit:", error);
+    }
+  };
+
+  const handleRemoveProfilePhoto = async () => {
+    try {
+      const response = await fetch(`${urlRaiz}/users/${userId}/deleteProfilePhoto`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+
+      if (response) {
+        console.log('Profile photo deleted successfully');
+        updateUser({
+          ...userData,
+          profile_image_url: null, 
+        }); 
+      } else {
+        console.error('Error deleting profile photo:', response.status);
+      }
+    } catch (error) {
+      console.error('Error en la función handleRemoveProfilePhoto:', error);
     }
   };
 
@@ -258,7 +296,17 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
             name="photo"
             onChange={handleChange}
           />
+          <button onClick={handleRemoveProfilePhoto}>
+  Eliminar Foto de Perfil
+</button>
+
         </label>
+        {previewImage && (
+  <div className="preview-image-container">
+    <img src={previewImage} alt="Preview" />
+  </div>
+)}
+
 
         <button type="submit">Guardar Cambios</button>
         <button onClick={onCancelEditProfile}>Salir</button>
