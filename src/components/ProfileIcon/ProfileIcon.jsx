@@ -30,10 +30,11 @@ const ProfileIcon = () => {
       <div className="profile-icon" onClick={handleMenuOpen}>
         {userData && userData.profile_image_url ? (
           <img
-            src={userData.profile_image_url}
-            alt="Profile"
-            style={{ width: '40px', height: '40px', borderRadius: '50%' }}
-          />
+          key={userData.profile_image_url}
+          src={userData.profile_image_url}
+          alt="Profile"
+          style={{ width: '40px', height: '40px', borderRadius: '50%' }}
+/>
         ) : (
           <RxAvatar />
         )}

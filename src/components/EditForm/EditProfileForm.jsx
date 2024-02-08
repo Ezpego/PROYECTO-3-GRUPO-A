@@ -107,7 +107,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
     } else {
       setEditedData({
         ...editedData,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value === "" ? " " : e.target.value,
       });
     }
   };
@@ -123,7 +123,6 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
 
       formattedDate = `${year}-${month}-${day}`;
     }
-
     const formData = new FormData();
     formData.append("name", editedData.name);
     formData.append("last_name", editedData.last_name);
@@ -154,7 +153,8 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
           email: updatedUserData.email,
           password: updatedUserData.password,
           phone_number: updatedUserData.phone_number,
-          profile_image_url: updatedUserData.profile_image_url,
+          profile_image_url: `${updatedUserData.profile_image_url}?timestamp=${Date.now()}`,
+          
         });
         console.log("FECHA NACIMIENTOOO", updatedUserData.birth_date);
       } else {

@@ -13,11 +13,12 @@ const UserProfileDetails = ({ onEditProfileClick }) => {
   return (
     <div className="user-profile-card">
       <div className="profile-image-container">
-        <img
-          className="profile-image"
-          src={userData.profile_image_url}
-          alt="Perfil"
-        />
+      <img
+  key={userData.profile_image_url}
+  className="profile-image"
+  src={userData.profile_image_url}
+  alt="Perfil"
+/>
       </div>
       <div className="userData-details">
         <h2>Detalles del Perfil</h2>

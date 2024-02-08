@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import EditProfileForm from "../components/EditForm/EditProfileForm";
 import UserProfileDetails from "../components/UserProfileDetails/UserProfileDetails";
+import TokenContext from "../context/TokenContext";
+
 
 
 
@@ -8,6 +10,7 @@ const ProfilePage = () => {
     const [showEditForm, setShowEditForm] = useState(false);
     const [showUserProfile, setShowUserProfile] = useState(true);
     const [updateProfileError, setUpdateProfileError] = useState(null);
+    const { token, setToken } = useContext(TokenContext);
 
     const handleEditButtonClick = () => {
         setShowEditForm(true);
@@ -23,7 +26,6 @@ const ProfilePage = () => {
 
     const handleUpdateProfile = async ( userId, formData) => {
         console.log('userid de handleprofile : ', userId)
-        const token = localStorage.getItem('token'); 
         console.log('datitaa', formData.get('name'));
         console.log('token de handleprofile :', token)
         const urlRaiz = import.meta.env.VITE_REACT_APP_URL_RAIZ;
@@ -47,6 +49,7 @@ const ProfilePage = () => {
             console.log('newToken', data.newToken);
             if (data.newToken) {
                 localStorage.setItem('token', data.newToken);
+                setToken(data.newToken);
             }
             console.log('DATA RESPONSE DANI', data);
             console.log("Perfil actualizado con éxito");
