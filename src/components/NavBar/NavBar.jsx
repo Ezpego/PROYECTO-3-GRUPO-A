@@ -37,6 +37,7 @@ import ProfileIcon from "../ProfileIcon/ProfileIcon";
 import TokenContext from "../../context/TokenContext";
 
 const NavBar = () => {
+<<<<<<< HEAD
   const { isAdmin } = useContext(TokenContext);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -55,6 +56,35 @@ const NavBar = () => {
       </span>
     </>
   );
+=======
+    const { tokenUpdate, isAdmin } = useContext(TokenContext);
+
+    const handleExitButton = () => {
+        tokenUpdate("");
+    };
+
+    // const navContainerStyle = {
+    //   display: "flex",
+    //   justifyContent: "space-around",
+    //   gap: "20px",
+    // };
+
+    return (
+        <>
+            <span>
+                {" "}
+                <ProfileIcon />
+                <ModalButton />
+                {isAdmin && (
+                    <Link to="/exercises/">
+                        <SiAddthis />
+                    </Link>
+                )}
+                <ButtonsHome />
+            </span>
+        </>
+    );
+>>>>>>> ccb214d (Proyecto completo version 1)
 };
 
 export default NavBar;

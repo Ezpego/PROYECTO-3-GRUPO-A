@@ -1,20 +1,5 @@
-// import { useLocation } from "react-router-dom";
-
-// const AdminPage = () => {
-//   const { state } = useLocation();
-//   console.log(state);
-//   return (
-//     <>
-//       <p>Admin Page </p>
-//     </>
-//   );
-// };
-
-// export default AdminPage;
-
 import { useLocation } from "react-router-dom";
 import FormExercises from "../components/ExercisesForm/ExercisesFormCreated";
-import FormExercisesEditer from "../components/ExercisesForm/ExercisesFormEditer";
 import UserGestion from "../components/UserGestion/UserGestion";
 import { useState } from "react";
 
@@ -34,9 +19,8 @@ const AdminPage = () => {
     return (
         <>
             {currentComponent === "FormExercises" && <FormExercises />}
-            {currentComponent === "UserGestion" && <UserGestion />}
-            {currentComponent === "FormExercisesEditer" && (
-                <FormExercisesEditer defaultValues={state} />
+            {currentComponent === "UserGestion" && (
+                <UserGestion setCurrentComponent={setCurrentComponent} />
             )}
 
             {!currentComponent && (
@@ -56,14 +40,6 @@ const AdminPage = () => {
                         onClick={() => setCurrentComponent("UserGestion")}
                     >
                         Gestión de usuarios
-                    </button>
-                    <button
-                        style={buttonStyle}
-                        onClick={() =>
-                            setCurrentComponent("FormExercisesEditer")
-                        }
-                    >
-                        Edicion de ejercicios{" "}
                     </button>
                 </div>
             )}

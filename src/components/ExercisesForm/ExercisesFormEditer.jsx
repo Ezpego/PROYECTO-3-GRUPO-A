@@ -3,14 +3,21 @@ import { useForm } from "react-hook-form";
 import { useState, useContext } from "react";
 import { llamadaServidor } from "../../utils/llamadasServidor";
 import TokenContext from "../../context/TokenContext";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const FormExercisesEditer = ({ onSubmit, defaultValues }) => {
+const FormExercisesEditer = () => {
+    const { state } = useLocation();
+    console.log(state);
+
+    const defaultValues = state || {};
+
     const {
         register,
         handleSubmit,
         formState: { errors },
         reset,
-    } = useForm({ defaultValues: defaultValues });
+    } = useForm({ defaultValues });
 
     const [data, setData] = useState(null);
     const [imageFile, setImageFile] = useState(null);
@@ -25,6 +32,7 @@ const FormExercisesEditer = ({ onSubmit, defaultValues }) => {
         defaultValues.typology
     );
     const { token } = useContext(TokenContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const filtros = async () => {
@@ -60,7 +68,7 @@ const FormExercisesEditer = ({ onSubmit, defaultValues }) => {
         reader.readAsDataURL(file);
     };
 
-    onSubmit = (data) => {
+    const onSubmit = (data) => {
         console.log("Datos: ", data);
         console.log(data.photo[0]);
         const sendExercice = async () => {
@@ -85,6 +93,7 @@ const FormExercisesEditer = ({ onSubmit, defaultValues }) => {
             );
 
             console.log(result);
+            navigate("/");
         };
 
         sendExercice();
@@ -233,7 +242,7 @@ const FormExercisesEditer = ({ onSubmit, defaultValues }) => {
                 )}
                 <button type="submit">Editar</button>
                 <button
-                    onClick={() => window.location.reload()}
+                    onClick={() => navigate("/")}
                     style={{ color: "red", marginLeft: "50px" }}
                 >
                     Volver

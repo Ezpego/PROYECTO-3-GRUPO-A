@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const ButtonsEdit = ({ exerciseObj }) => {
     const navigate = useNavigate();
     const handleEditButton = () => {
-        navigate("/exercises/", { state: exerciseObj });
+        navigate("/exercises/edited", { state: exerciseObj });
     };
     return (
         <>
