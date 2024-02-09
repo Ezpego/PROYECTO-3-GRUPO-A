@@ -37,24 +37,24 @@ import ProfileIcon from "../ProfileIcon/ProfileIcon";
 import TokenContext from "../../context/TokenContext";
 
 const NavBar = () => {
-  const { isAdmin } = useContext(TokenContext);
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+    const { isAdmin } = useContext(TokenContext);
+    const location = useLocation();
+    const isHomePage = location.pathname === "/";
 
-  return (
-    <>
-      <span className="navContainer">
-        <ProfileIcon />
-        {isHomePage && <ModalButton />}
-        {isAdmin && !isHomePage && (
-          <Link to="/exercises/">
-            <SiAddthis />
-          </Link>
-        )}
-        <ButtonsHome />
-      </span>
-    </>
-  );
+    return (
+        <>
+            <span className="navContainer">
+                <ProfileIcon />
+                {isHomePage && <ModalButton />}
+                {isAdmin && !isHomePage && (
+                    <Link to="/exercises/">
+                        <SiAddthis />
+                    </Link>
+                )}
+                <ButtonsHome />
+            </span>
+        </>
+    );
 };
 
 export default NavBar;
