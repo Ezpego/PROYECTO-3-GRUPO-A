@@ -8,6 +8,7 @@ export const TokenProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [userData, setUserData] = useState("");
+  const [filterSelected, setFilterSelected] = useState(""); // añadido para filtro ejercicios
   // *AÑADIDO EZEQUIEL ESTADO PARA MANEJAR LOS ERRORES
   const [error, setError] = useState(null);
   // *AÑADIDO EZEQUIEL URLRAIZ DEL .ENV
@@ -134,6 +135,11 @@ export const TokenProvider = ({ children }) => {
     }));
   };
 
+  // añadido para filtro
+  const updateFilter = (datos) => {
+    setFilterSelected(datos);
+  };
+
   const clearError = () => {
     setError(null);
   };
@@ -149,6 +155,9 @@ export const TokenProvider = ({ children }) => {
         error,
         updateUser,
         clearError,
+        updateFilter,
+        setFilterSelected,
+        filterSelected,
       }}
     >
       {children}

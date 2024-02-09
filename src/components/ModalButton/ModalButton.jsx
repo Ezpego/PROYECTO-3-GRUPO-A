@@ -6,16 +6,21 @@ import TokenContext from "../../context/TokenContext";
 import { useContext } from "react";
 
 const ModalButton = ({ buttonContext }) => {
-  const { token } = useContext(TokenContext);
+  const { token, updateFilter } = useContext(TokenContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState({
     muscleGroup: "",
     exerciseType: "",
     difficulty_level: "",
+    like: false,
+    favorite: false,
   });
   const [muscleGroupOptions, setMuscleGroupOptions] = useState([]);
   const [exerciseTypeOptions, setExerciseTypeOptions] = useState([]);
   const [difficultyLevelOptions, setDifficultyLevelOptions] = useState([]);
+  const [favoriteChecked, setFavoriteChecked] = useState(false);
+  const [likeChecked, setLikeChecked] = useState(false);
+  const [emptyFilter, setEmptyFiltre] = useState(false);
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -30,11 +35,25 @@ const ModalButton = ({ buttonContext }) => {
       ...prevFilters,
       [filterType]: value,
     }));
+    setEmptyFiltre(true);
   };
 
   const handleApplyFilters = () => {
     console.log("Filters applied:", selectedFilters);
-    // añadido Gabisas
+    // añadido filtrado
+
+    updateFilter(selectedFilters);
+
+    setSelectedFilters({
+      muscleGroup: "",
+      exerciseType: "",
+      difficulty_level: "",
+      like: false,
+      favorite: false,
+    });
+    setEmptyFiltre(false);
+    setLikeChecked(false);
+    setFavoriteChecked(false);
 
     closeModal();
   };
@@ -61,10 +80,12 @@ const ModalButton = ({ buttonContext }) => {
 
         const data = await response.json();
         setMuscleGroupOptions(
-          data.muscle ? data.muscle.map((group) => group.name) : []
+          //data.muscle ? data.muscle.map((group) => group.name) : []
+          data.muscle ? data.muscle.map((group) => group) : []
         );
         setExerciseTypeOptions(
-          data.typology ? data.typology.map((typology) => typology.name) : []
+          //data.typology ? data.typology.map((typology) => typology) : []
+          data.typology ? data.typology.map((typology) => typology) : []
         );
         console.log(data);
 
@@ -104,9 +125,14 @@ const ModalButton = ({ buttonContext }) => {
               }
             >
               <option value="">Selecciona...</option>
-              {muscleGroupOptions.map((muscleGroup, index) => (
+              {/* {muscleGroupOptions.map((muscleGroup, index) => (
                 <option key={index} value={muscleGroup}>
                   {muscleGroup}
+                </option>
+              ))} */}
+              {muscleGroupOptions.map((muscleGroup) => (
+                <option key={muscleGroup.id} value={muscleGroup.id}>
+                  {muscleGroup.name}
                 </option>
               ))}
             </select>
@@ -121,9 +147,9 @@ const ModalButton = ({ buttonContext }) => {
               }
             >
               <option value="">Selecciona...</option>
-              {exerciseTypeOptions.map((exerciseType, index) => (
-                <option key={index} value={exerciseType}>
-                  {exerciseType}
+              {exerciseTypeOptions.map((exerciseType) => (
+                <option key={exerciseType.id} value={exerciseType.id}>
+                  {exerciseType.name}
                 </option>
               ))}
             </select>
@@ -146,8 +172,38 @@ const ModalButton = ({ buttonContext }) => {
             </select>
           </label>
           <br />
-
-          <button onClick={handleApplyFilters}>Aplicar Filtros</button>
+          <span>
+            <label htmlFor="like">Favoritos </label>
+            <input
+              className="like"
+              id="like"
+              type="checkbox"
+              checked={favoriteChecked}
+              onChange={() => {
+                setFavoriteChecked(!favoriteChecked);
+                handleFilterChange("favorite", !favoriteChecked);
+              }}
+            />
+          </span>
+          <span>
+            <label>Likes</label>
+            <input
+              type="checkbox"
+              checked={likeChecked}
+              onChange={() => {
+                setLikeChecked(!likeChecked);
+                handleFilterChange("like", !likeChecked);
+              }}
+            />
+          </span>
+          <button onClick={handleApplyFilters}>
+            {emptyFilter ? "Aplicar Filtros" : "Mostrar todo"}
+          </button>
+          {/* {selectedFilters ? (
+            <button onClick={handleDeleteFilters}>Eliminar Filtros</button>
+          ) : (
+            ""
+          )} */}
           <button onClick={closeModal}>Cerrar</button>
         </div>
       </Modal>
