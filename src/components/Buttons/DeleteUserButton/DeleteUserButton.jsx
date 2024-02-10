@@ -35,7 +35,7 @@ const DeleteUserButton = ({ id }) => {
             setModalisOpen(false);
             const result = await deleteResponse.json();
             console.log("respuesta borrado ", result);
-            navigate("/exercises");
+            navigate("/");
         } catch (error) {
             console.error("Error al cargar datos: ", error);
             setModalisOpen(false);
