@@ -40,13 +40,14 @@ const NavBar = () => {
     const { isAdmin } = useContext(TokenContext);
     const location = useLocation();
     const isHomePage = location.pathname === "/";
+    const isAdminPage = location.pathname === "/exercises/";
 
     return (
         <>
             <span className="navContainer">
                 <ProfileIcon />
                 {isHomePage && <ModalButton />}
-                {isAdmin && !isHomePage && (
+                {isAdmin && !isAdminPage && (
                     <Link to="/exercises/">
                         <SiAddthis />
                     </Link>

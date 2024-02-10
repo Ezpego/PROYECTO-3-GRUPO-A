@@ -19,6 +19,7 @@ const UserGestion = ({ setCurrentComponent }) => {
     const [useMail, setUseMail] = useState(null);
     const [imageFile, setImageFile] = useState(null);
     const [previewSrc, setPreviewSrc] = useState("");
+    const [error, setError] = useState(false);
     const navigate = useNavigate();
 
     const handleInputChange = (event) => {
@@ -68,6 +69,7 @@ const UserGestion = ({ setCurrentComponent }) => {
             setPreviewSrc(result.profile_image_url);
         } catch (error) {
             console.error(error);
+            setError(true);
         }
     };
 
@@ -121,21 +123,27 @@ const UserGestion = ({ setCurrentComponent }) => {
         }
     };
 
-    const onError = (error) => {
-        console.error(error);
-    };
-
     return (
         <>
             {!useData ? (
-                <form className="estructura" onSubmit={handleSearchClick}>
-                    <input
-                        type="text"
-                        placeholder="Email usuario"
-                        onChange={handleInputChange}
-                    />
-                    <FaSearch className="lupa" onClick={handleSearchClick} />
-                </form>
+                <div>
+                    <form className="estructura" onSubmit={handleSearchClick}>
+                        <input
+                            type="text"
+                            placeholder="Email usuario"
+                            onChange={handleInputChange}
+                        />
+                        <FaSearch
+                            className="lupa"
+                            onClick={handleSearchClick}
+                        />
+                    </form>
+                    {error && (
+                        <p style={{ color: "red" }}>
+                            El usuario no existe en la base de datos
+                        </p>
+                    )}
+                </div>
             ) : (
                 <div>
                     <form onSubmit={handleSubmit(onSubmit)}>
