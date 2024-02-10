@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import PropTypes from "prop-types";
 import TokenContext from "../../context/TokenContext";
+import { RxAvatar } from "react-icons/rx";
 import "./UserProfileDetails.css";
 
 const UserProfileDetails = ({ onEditProfileClick }) => {
@@ -11,42 +12,49 @@ const UserProfileDetails = ({ onEditProfileClick }) => {
         return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
+
     return (
-        <div className="user-profile-card">
-            <div className="profile-image-container">
-                <img
-                    key={userData.profile_image_url}
-                    className="profile-image"
-                    src={userData.profile_image_url}
-                    alt="Perfil"
-                />
-            </div>
-            <div className="userData-details">
+        <section className="user-profile-card">
+            <article className="profile-image-container">
+                {userData && userData.profile_image_url ? (
+            <img
+            key={userData.profile_image_url}
+            src={userData.profile_image_url}
+            alt="Profile"
+            className="profile-image"
+/>
+        ) : (
+            <RxAvatar className="profile-image" />
+        )}
+
+            </article>
+            <article className="userData-details">
                 <h2>Detalles del Perfil</h2>
-                <div>
-                    <strong>Nombre:</strong> {userData.name}
-                </div>
-                <div>
-                    <strong>Apellido:</strong> {userData.last_name}
-                </div>
-                <div>
-                    <strong>DNI:</strong> {userData.dni}
-                </div>
-                <div>
-                    <strong>Fecha de Nacimiento:</strong>{" "}
-                    {userData.birth_date
+                <dl>
+                    <dt><strong>Nombre</strong></dt>
+                    <dd>{userData.name}</dd>
+
+                    <dt><strong>Apellidos</strong></dt>
+                    <dd>{userData.last_name}</dd>
+
+                    <dt><strong>DNI</strong></dt>
+                    <dd>{userData.dni}</dd>
+
+                    <dt><strong>Fecha de Nacimiento</strong></dt>
+                    <dd>{userData.birth_date
                         ? formatDate(userData.birth_date)
-                        : null}
-                </div>
-                <div>
-                    <strong>Email:</strong> {userData.email}
-                </div>
-                <div>
-                    <strong>Número de Teléfono:</strong> {userData.phone_number}
-                </div>
-            </div>
+                        : null}</dd>
+
+                    <dt><strong>Email</strong></dt>
+                    <dd>{userData.email}</dd>
+
+                    <dt><strong>Número de Teléfono</strong></dt>
+                    <dd>{userData.phone_number}</dd>
+
+                </dl>
+            </article>
             <button onClick={onEditProfileClick}>Editar Perfil</button>
-        </div>
+        </section>
     );
 };
 

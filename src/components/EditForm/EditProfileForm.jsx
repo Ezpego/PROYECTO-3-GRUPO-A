@@ -168,7 +168,9 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
           email: updatedUserData.email,
           password: updatedUserData.password,
           phone_number: updatedUserData.phone_number,
-          profile_image_url: `${updatedUserData.profile_image_url}?timestamp=${Date.now()}`,
+          profile_image_url: updatedUserData.profile_image_url
+            ? `${updatedUserData.profile_image_url}?timestamp=${Date.now()}`
+            : null,
           
         });
         console.log("FECHA NACIMIENTOOO", updatedUserData.birth_date);
@@ -296,7 +298,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
             name="photo"
             onChange={handleChange}
           />
-          <button onClick={handleRemoveProfilePhoto}>
+          <button type="button" onClick={handleRemoveProfilePhoto}>
   Eliminar Foto de Perfil
 </button>
 
