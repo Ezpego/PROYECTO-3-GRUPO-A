@@ -5,14 +5,8 @@
 }
 
 .stored-date{
-    COLOR: grey;
+    COLOR: rgb(0, 0, 0);
 }
-
-.ReactModal__Content {
-    width: 50%;  
-    height: 50%; 
-    margin: auto; 
-  }
 
 
 .preview-image-container img {
@@ -20,3 +14,26 @@
     max-height: 200px; 
   }
   
+  .editForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 10px; */
+    border: 2px solid #575757;
+    color: white;
+    border-radius: 8px;
+    background-color: #575757af;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    /* margin: 20px auto; */
+    width: 25%; 
+    min-width: 220px;
+    min-height: 80vh;
+    margin: 100px 0px;
+  }
+
+  input{
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+
+  }

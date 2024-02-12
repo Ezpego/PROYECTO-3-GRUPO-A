@@ -1,25 +1,20 @@
-ModalButton.css .modal-button-container {
+.modal-button-container {
   text-align: center;
-  margin-top: 20px;
 }
-
-/* .modal-button {
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: url("filter.jpg") no-repeat center center;
-    background-size: 50px;
-  } */
 
 .modal-content {
   background-color: #fefefe;
-  padding: 20px;
+  padding: 150px;
   border: 1px solid #888;
   width: 80%;
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
+  color: #fefefe;
+  margin-bottom: 70px;
+  background-image: url("/public/images/cintas.jpg");
+  background-size: cover;
+  height: auto;
 }
 
 .modal-content label {
@@ -39,4 +34,38 @@ ModalButton.css .modal-button-container {
   padding: 10px 15px;
   font-size: 14px;
   cursor: pointer;
+}
+h2 {
+  font-size: 2em;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+select {
+  width: 25%;
+  padding: 5px 1px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #050505;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  font-size: 1em;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+label {
+  font-size: 20px;
 }

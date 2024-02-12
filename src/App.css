@@ -1,5 +1,12 @@
+
 #main-content {
+    font-family: 'Montserrat';
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 70px;
-    background-image: url('/public/images/GymJoyHeader.jpg');
-    background-size: cover;
-}
+    background-image: url('/public/images/cintas.jpg'); 
+    background-size: cover; 
+    min-height: 100vh; 
+    background-attachment:fixed;
+  }

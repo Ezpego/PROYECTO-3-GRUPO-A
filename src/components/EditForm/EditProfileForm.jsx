@@ -206,7 +206,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
   };
 
   return (
-    <>
+    <div className="editForm">
       <form onSubmit={handleSubmit}>
         <label>
           Nombre:
@@ -318,7 +318,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
         isOpen={isChangePasswordModalOpen}
         onClose={closeChangePasswordModal}
       />
-    </>
+    </div>
   );
 };
 
