@@ -1,12 +1,12 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 #main-content {
-  margin: 0px;
-  background-image: url("/public/images/cintas.jpg");
-  background-size: cover;
-  min-height: 100dvh;
+    margin: 0px;
+    background-image: url("/public/images/cintas.jpg");
+    background-size: cover;
+    min-height: 100dvh;
 }

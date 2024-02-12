@@ -1,4 +1,4 @@
-import "./EditProfileForm.css";
+import style from "./EditProfileForm.module.css";
 
 import { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
@@ -222,10 +222,11 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <label>
+            <form onSubmit={handleSubmit} className={style.form}>
+                <label className={style.label}>
                     Nombre:
                     <input
+                        className={style.input}
                         type="text"
                         name="name"
                         value={editedData.name}
@@ -234,9 +235,10 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 </label>
 
-                <label>
+                <label className={style.label}>
                     Apellido:
                     <input
+                        className={style.input}
                         type="text"
                         name="last_name"
                         value={editedData.last_name}
@@ -244,9 +246,10 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 </label>
 
-                <label>
+                <label className={style.label}>
                     DNI:
                     <input
+                        className={style.input}
                         type="text"
                         name="dni"
                         value={editedData.dni}
@@ -254,12 +257,13 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 </label>
 
-                <label>
+                <label className={style.label}>
                     Fecha de Nacimiento:&nbsp;
                     <span className="stored-date">
                         {formatDate(editedData.birth_date)}
                     </span>
                     <input
+                        className={style.input}
                         type="date"
                         name="birth_date"
                         value={editedData.birth_date}
@@ -267,9 +271,10 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 </label>
 
-                <label>
+                <label className={style.label}>
                     Email:
                     <input
+                        className={style.input}
                         type="email"
                         name="email"
                         value={editedData.email}
@@ -283,23 +288,28 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                         <div className="display-email">{emailFromServer}</div>
                     )}
                     {formErrors && formErrors.includes("Email") && (
-                        <div className="error-message">{formErrors}</div>
+                        <div className={style.error}>{formErrors}</div>
                     )}
                 </label>
 
-                <label>
-                    Contraseña:
-                    <button type="button" onClick={openChangePasswordModal}>
+                <div className={style.labelContainer}>
+                    <label className={style.label}>Contraseña:</label>
+                    <button
+                        type="button"
+                        className={style.buttonPassword}
+                        onClick={openChangePasswordModal}
+                    >
                         Cambiar Contraseña
                     </button>
                     {formErrors && formErrors.includes("Password") && (
                         <div className="error-message">{formErrors}</div>
                     )}
-                </label>
+                </div>
 
-                <label>
+                <label className={style.label}>
                     Número de Teléfono:
                     <input
+                        className={style.input}
                         type="text"
                         name="phone_number"
                         value={editedData.phone_number}
@@ -307,9 +317,10 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 </label>
 
-                <label>
+                <label className={style.label}>
                     Imagen de Perfil:
                     <input
+                        className={style.input}
                         type="file"
                         accept="image/*"
                         name="photo"
@@ -320,9 +331,11 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     </button>
                 </label>
                 {previewImage && (
-                    <div className="preview-image-container">
-                        <img src={previewImage} alt="Preview" />
-                    </div>
+                    <img
+                        className={style.imgForm}
+                        src={previewImage}
+                        alt="Preview"
+                    />
                 )}
 
                 <button type="submit">Guardar Cambios</button>

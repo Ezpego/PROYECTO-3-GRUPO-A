@@ -4,7 +4,7 @@ import { useContext } from "react";
 import TokenContext from "../../context/TokenContext";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import "./UserGestion.css";
+import style from "./UserGestion.module.css";
 import DeleteUserButton from "../Buttons/DeleteUserButton/DeleteUserButton";
 
 const UserGestion = ({ setCurrentComponent }) => {
@@ -126,143 +126,176 @@ const UserGestion = ({ setCurrentComponent }) => {
     return (
         <>
             {!useData ? (
-                <div>
-                    <form className="estructura" onSubmit={handleSearchClick}>
-                        <input
-                            type="text"
-                            placeholder="Email usuario"
-                            onChange={handleInputChange}
-                        />
-                        <FaSearch
-                            className="lupa"
-                            onClick={handleSearchClick}
-                        />
-                    </form>
-                    {error && (
-                        <p style={{ color: "red" }}>
-                            El usuario no existe en la base de datos
-                        </p>
-                    )}
+                <div className={style.userGestionContainer}>
+                    <div className={style.userGestionForm}>
+                        <form
+                            className={style.estructura}
+                            onSubmit={handleSearchClick}
+                        >
+                            <input
+                                className={style.inputBuscador}
+                                type="text"
+                                placeholder="Email usuario"
+                                onChange={handleInputChange}
+                            />
+                            <FaSearch
+                                className={style.lupa}
+                                onClick={handleSearchClick}
+                            />
+                        </form>
+                        {error && (
+                            <p style={{ color: "red" }}>
+                                El usuario no existe en la base de datos
+                            </p>
+                        )}
+                    </div>
                 </div>
             ) : (
-                <div>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <label>
-                            Nombre
-                            <input
-                                type="text"
-                                {...register("name", { required: true })}
-                                maxLength={30}
-                            />
-                        </label>
-                        {errors.name && (
-                            <span
-                                style={{
-                                    color: "red",
-                                    fontSize: "0.8em",
-                                    marginRight: "5px",
-                                }}
-                            >
-                                Este campo es obligatorio
-                            </span>
-                        )}
-
-                        <label>
-                            Apellido
-                            <input
-                                type="text"
-                                {...register("last_name")}
-                                maxLength={50}
-                            />
-                        </label>
-
-                        <label>
-                            DNI
-                            <input
-                                type="text"
-                                {...register("dni")}
-                                maxLength={20}
-                            />
-                        </label>
-
-                        <label>
-                            Fecha de Nacimiento
-                            <input type="date" {...register("birth_date")} />
-                        </label>
-
-                        <label>
-                            Número de Teléfono
-                            <input
-                                type="tel"
-                                {...register("phone_number")}
-                                maxLength={20}
-                            />
-                        </label>
-
-                        <label>
-                            Email
-                            <input
-                                type="email"
-                                {...register("email", { required: true })}
-                                maxLength={50}
-                            />
-                        </label>
-                        {errors.email && (
-                            <span
-                                style={{
-                                    color: "red",
-                                    fontSize: "0.8em",
-                                    marginRight: "5px",
-                                }}
-                            >
-                                Este campo es obligatorio
-                            </span>
-                        )}
-
-                        <label>
-                            Imagen de Perfil
-                            <input
-                                type="file"
-                                {...register("profile_image_url", {
-                                    required: false,
-                                })}
-                                onChange={handleImageChange}
-                            />
-                        </label>
-                        {previewSrc && (
-                            <img
-                                src={previewSrc}
-                                alt="preview"
-                                width={"200px"}
-                            />
-                        )}
-
-                        <label>
-                            Habilitado
-                            <input
-                                type="checkbox"
-                                {...register("isEnabled")}
-                                defaultChecked
-                            />
-                        </label>
-
-                        <label>
-                            Administrador
-                            <input
-                                type="checkbox"
-                                {...register("isAdministrator")}
-                            />
-                        </label>
-
-                        <button type="submit">Editar</button>
-                        <button
-                            onClick={() => setCurrentComponent(null)}
-                            style={{ color: "red", marginLeft: "50px" }}
+                <div className={style.userGestionContainer}>
+                    <div className={style.userGestionForm}>
+                        <form
+                            className={style.form}
+                            onSubmit={handleSubmit(onSubmit)}
                         >
-                            Volver
-                        </button>
-                    </form>
-                    <DeleteUserButton id={useData.id} />
+                            <label className={style.label}>
+                                Nombre
+                                <input
+                                    className={style.input}
+                                    type="text"
+                                    {...register("name", { required: true })}
+                                    maxLength={30}
+                                />
+                            </label>
+                            {errors.name && (
+                                <span
+                                    style={{
+                                        color: "red",
+                                        fontSize: "0.8em",
+                                        marginRight: "5px",
+                                    }}
+                                >
+                                    Este campo es obligatorio
+                                </span>
+                            )}
+
+                            <label className={style.label}>
+                                Apellido
+                                <input
+                                    className={style.input}
+                                    type="text"
+                                    {...register("last_name")}
+                                    maxLength={50}
+                                />
+                            </label>
+
+                            <label className={style.label}>
+                                DNI
+                                <input
+                                    className={style.input}
+                                    type="text"
+                                    {...register("dni")}
+                                    maxLength={20}
+                                />
+                            </label>
+
+                            <label className={style.label}>
+                                Fecha de Nacimiento
+                                <input
+                                    className={style.input}
+                                    type="date"
+                                    {...register("birth_date")}
+                                />
+                            </label>
+
+                            <label className={style.label}>
+                                Número de Teléfono
+                                <input
+                                    className={style.input}
+                                    type="tel"
+                                    {...register("phone_number")}
+                                    maxLength={20}
+                                />
+                            </label>
+
+                            <label className={style.label}>
+                                Email
+                                <input
+                                    className={style.input}
+                                    type="email"
+                                    {...register("email", { required: true })}
+                                    maxLength={50}
+                                />
+                            </label>
+                            {errors.email && (
+                                <span
+                                    style={{
+                                        color: "red",
+                                        fontSize: "0.8em",
+                                        marginRight: "5px",
+                                    }}
+                                >
+                                    Este campo es obligatorio
+                                </span>
+                            )}
+
+                            <label className={style.label}>
+                                Imagen de Perfil
+                                <input
+                                    className={style.input}
+                                    type="file"
+                                    {...register("profile_image_url", {
+                                        required: false,
+                                    })}
+                                    onChange={handleImageChange}
+                                />
+                            </label>
+                            {previewSrc && (
+                                <img
+                                    className={style.imgForm}
+                                    src={previewSrc}
+                                    alt="preview"
+                                />
+                            )}
+                            {!useData.isEnabled === 0 ? (
+                                <label className={style.label}>
+                                    Habilitado
+                                    <input
+                                        className={style.input}
+                                        type="checkbox"
+                                        {...register("isEnabled")}
+                                    />
+                                </label>
+                            ) : (
+                                <p className={style.error}>
+                                    Usuario deshabilitado
+                                </p>
+                            )}
+
+                            <label className={style.label}>
+                                Administrador
+                                <input
+                                    className={style.input}
+                                    type="checkbox"
+                                    {...register("isAdministrator")}
+                                />
+                            </label>
+                            {!useData.isEnabled === 0 ? (
+                                <button type="submit">Editar</button>
+                            ) : (
+                                <p className={style.error}>
+                                    Para editar, debe reactivar el usuario
+                                </p>
+                            )}
+
+                            <button
+                                onClick={() => setCurrentComponent(null)}
+                                style={{ color: "red", marginLeft: "50px" }}
+                            >
+                                Volver
+                            </button>
+                        </form>
+                        <DeleteUserButton id={useData.id} />
+                    </div>
                 </div>
             )}
         </>

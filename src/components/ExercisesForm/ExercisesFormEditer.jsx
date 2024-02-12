@@ -1,3 +1,5 @@
+import style from "./ExercisesFormCreated.module.css";
+
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useState, useContext } from "react";
@@ -101,46 +103,39 @@ const FormExercisesEditer = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
+            <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+                <label className={style.label}>
                     Nombre
                     <input
+                        className={style.input}
                         type="text"
                         {...register("name", { required: true })}
                         maxLength={30}
                     />
                 </label>
                 {errors.name && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontSize: "0.8em",
-                            marginRight: "5px",
-                        }}
-                    >
+                    <span className={style.erro}>
                         Este campo es obligatorio
                     </span>
                 )}
-                ;
-                <label>
+
+                <label className={style.label}>
                     Descripcion
                     <textarea
+                        className={style.textarea}
                         {...register("description", { required: true })}
                     />
                 </label>
                 {errors.description && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontSize: "0.8em",
-                            marginRight: "5px",
-                        }}
-                    >
+                    <span className={style.erro}>
                         Este campo es obligatorio
                     </span>
                 )}
-                <label htmlFor="difficulty_level">Nivel de dificultad</label>
+                <label className={style.label} htmlFor="difficulty_level">
+                    Nivel de dificultad
+                </label>
                 <select
+                    className={style.select}
                     id="difficulty_level"
                     name="difficulty_level"
                     {...register("difficulty_level", { required: true })}
@@ -158,18 +153,15 @@ const FormExercisesEditer = () => {
                         })}
                 </select>
                 {errors.difficulty_level && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontSize: "0.8em",
-                            marginRight: "5px",
-                        }}
-                    >
+                    <span className={style.erro}>
                         Este campo es obligatorio
                     </span>
                 )}
-                <label htmlFor="muscle_group">Grupo muscular</label>
+                <label className={style.label} htmlFor="muscle_group">
+                    Grupo muscular
+                </label>
                 <select
+                    className={style.select}
                     id="muscle_group"
                     name="muscle_group"
                     {...register("muscle_group", { required: true })}
@@ -185,17 +177,15 @@ const FormExercisesEditer = () => {
                         ))}
                 </select>
                 {errors.muscle_group && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontSize: "0.8em",
-                            marginRight: "5px",
-                        }}
-                    >
+                    <span className={style.erro}>
                         Este campo es obligatorio
                     </span>
                 )}
+                <label className={style.label} htmlFor="typology">
+                    Tipologia
+                </label>
                 <select
+                    className={style.select}
                     id="typology"
                     name="typology"
                     {...register("typology", { required: true })}
@@ -211,40 +201,35 @@ const FormExercisesEditer = () => {
                         ))}
                 </select>
                 {errors.typology && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontSize: "0.8em",
-                            marginRight: "5px",
-                        }}
-                    >
+                    <span className={style.erro}>
                         Este campo es obligatorio
                     </span>
                 )}
-                <input
-                    type="file"
-                    {...register("photo", { required: false })}
-                    onChange={handleImageChange}
-                />
+                <label className={style.label}>
+                    Imagen
+                    <input
+                        className={style.input}
+                        type="file"
+                        {...register("photo", { required: false })}
+                        onChange={handleImageChange}
+                    />
+                </label>
                 {errors.photo && (
-                    <span
-                        style={{
-                            color: "red",
-                            fontSize: "0.8em",
-                            marginRight: "5px",
-                        }}
-                    >
+                    <span className={style.erro}>
                         Este campo es obligatorio
                     </span>
                 )}
                 {previewSrc && (
-                    <img src={previewSrc} alt="preview" width={"200px"} />
+                    <img
+                        className={style.imgForm}
+                        src={previewSrc}
+                        alt="preview"
+                    />
                 )}
-                <button type="submit">Editar</button>
-                <button
-                    onClick={() => navigate("/")}
-                    style={{ color: "red", marginLeft: "50px" }}
-                >
+                <button className={style.Enviar} type="submit">
+                    Editar
+                </button>
+                <button className={style.Volver} onClick={() => navigate("/")}>
                     Volver
                 </button>
             </form>

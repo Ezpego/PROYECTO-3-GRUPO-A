@@ -1,0 +1,153 @@
+/*
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loginform {
+    display: flex;
+    flex-direction: column;
+}
+
+*/
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgForm {
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+.form {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.labelContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+    width: 300px;
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.label.passwordLabel {
+    margin-left: 0;
+}
+
+.buttonPassword {
+    margin-top: -8px;
+}
+
+.input {
+    width: 100%;
+    padding: 6px 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    max-height: 40px;
+    overflow: auto;
+}
+
+.Enviar {
+    width: 100%;
+    padding: 10px;
+    background-color: #3897f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.register {
+    width: 50%;
+    padding: 10px;
+    background-color: #30ba24;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Volver {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgb(236, 242, 244);
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.center {
+    color: grey;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.forgotpassword {
+    cursor: pointer;
+    color: #e0ff72;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .form {
+        max-width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Enviar,
+    .Volver {
+        padding: 3vw;
+    }
+}
