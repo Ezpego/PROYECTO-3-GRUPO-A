@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import PropTypes from "prop-types";
 import TokenContext from "../../context/TokenContext";
 
-
 Modal.setAppElement("#root");
 
 const ChangePasswordModal = ({ isOpen, onClose }) => {
@@ -133,7 +132,6 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
           if (data.newToken) {
             localStorage.setItem("token", data.newToken);
             setToken(data.newToken);
-            
           }
 
           setSuccessMessage("Contraseña cambiada con éxito");
@@ -166,6 +164,7 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Cambiar Contraseña"
+      className="modal-content"
     >
       {successMessage ? (
         <h2>Contraseña cambiada con exito</h2>
