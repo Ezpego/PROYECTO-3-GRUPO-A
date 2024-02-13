@@ -9,9 +9,6 @@ const HomePage = () => {
 
     return (
         <>
-            <header>
-                <h1>GymJoy</h1>
-            </header>
             <p>Página principal </p>
             {token ? <ExercisesList /> : <LoginForm />}
         </>

@@ -5,9 +5,23 @@
     /* overflow: hidden; */
 }
 
+/* #main-content {
+    margin-bottom: 46px;
+    background-image: url("/public/images/cintas.jpg");
+    background-size: cover;
+    min-height: 100dvh;
+    margin-top: 0;
+} */
+
 #main-content {
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 0px;
     background-image: url("/public/images/cintas.jpg");
     background-size: cover;
     min-height: 100dvh;
+    background-attachment: fixed;
 }

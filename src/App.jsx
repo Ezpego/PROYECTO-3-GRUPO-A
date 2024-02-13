@@ -16,6 +16,9 @@ function App() {
     return (
         <div id="main-content">
             {/* <UserProvider>   */}
+            <header>
+                <h1>GymJoy</h1>
+            </header>
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/users/register" element={<RegisterPage />} />
