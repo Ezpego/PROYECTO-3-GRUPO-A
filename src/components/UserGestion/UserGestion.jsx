@@ -18,7 +18,7 @@ const UserGestion = ({ setCurrentComponent }) => {
     const [useData, setUseData] = useState(null);
     const [useMail, setUseMail] = useState(null);
     const [imageFile, setImageFile] = useState(null);
-    const [previewSrc, setPreviewSrc] = useState("");
+    const [previewSrc, setPreviewSrc] = useState(null);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
 
@@ -66,7 +66,10 @@ const UserGestion = ({ setCurrentComponent }) => {
 
             // Establecer los datos del usuario en el estado
             setUseData(result);
-            setPreviewSrc(result.profile_image_url);
+
+            if (result.profile_image_url !== " ") {
+                setPreviewSrc(result.profile_image_url);
+            }
         } catch (error) {
             console.error(error);
             setError(true);
@@ -256,7 +259,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     alt="preview"
                                 />
                             )}
-                            {!useData.isEnabled === 0 ? (
+                            {useData.isEnabled === 1 ? (
                                 <label className={style.label}>
                                     Habilitado
                                     <input
@@ -279,7 +282,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     {...register("isAdministrator")}
                                 />
                             </label>
-                            {!useData.isEnabled === 0 ? (
+                            {useData.isEnabled === 1 ? (
                                 <button type="submit">Editar</button>
                             ) : (
                                 <p className={style.error}>

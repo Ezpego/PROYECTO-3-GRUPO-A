@@ -204,6 +204,7 @@ const FormExercises = () => {
                     Enviar
                 </button>
                 <button
+                    type="button"
                     className={style.Volver}
                     onClick={() => window.location.reload()}
                 >

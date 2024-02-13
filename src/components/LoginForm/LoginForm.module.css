@@ -26,6 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 25%;
 }
 
 .imgForm {
@@ -34,12 +35,13 @@
     margin-bottom: 20px;
 }
 .form {
-    max-width: 300px;
+    max-width: 100%;
     margin: auto;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.451);
+    background-color: rgba(255, 253, 253, 0.451);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.585);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +59,7 @@
     margin-bottom: 10px;
     font-weight: bold;
     text-align: left;
-    width: 300px;
+    width: 100%;
     align-self: flex-start;
     margin-right: auto;
 }
@@ -76,11 +78,13 @@
     margin-top: 5px;
     margin-bottom: 5px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
     color: black;
     max-height: 40px;
     overflow: auto;
+    background: transparent;
 }
 
 .Enviar {
