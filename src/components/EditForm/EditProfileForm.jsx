@@ -279,15 +279,11 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
 
                 <label className={style.label}>
                     Email:
-                    <input
-                        className={style.input}
-                        type="email"
-                        name="email"
-                        value={editedData.email}
-                        onChange={handleChange}
-                        autoComplete="off"
-                    />
-                    <button type="button" onClick={showInputEmail}>
+                    <button
+                        className={style.buttonMail}
+                        type="button"
+                        onClick={showInputEmail}
+                    >
                         {showEmail ? <FaRegEyeSlash /> : <FaRegEye />}
                     </button>
                     {showEmail && (
@@ -296,10 +292,18 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     {formErrors && formErrors.includes("Email") && (
                         <div className={style.error}>{formErrors}</div>
                     )}
+                    <input
+                        className={style.input}
+                        type="email"
+                        name="email"
+                        value={editedData.email}
+                        onChange={handleChange}
+                        autoComplete="off"
+                    />
                 </label>
 
                 <div className={style.labelContainer}>
-                    <label className={style.label}>Contraseña:</label>
+                    {/* <label className={style.label}>Contraseña:</label> */}
                     <button
                         type="button"
                         className={style.buttonPassword}
@@ -332,10 +336,14 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                         name="photo"
                         onChange={handleChange}
                     />
-                    <button type="button" onClick={handleRemoveProfilePhoto}>
-                        Eliminar Foto de Perfil
-                    </button>
                 </label>
+                <button
+                    className={style.EliminarFoto}
+                    type="button"
+                    onClick={handleRemoveProfilePhoto}
+                >
+                    Eliminar Foto de Perfil
+                </button>
                 {previewImage && (
                     <img
                         className={style.imgForm}
@@ -344,8 +352,12 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 )}
 
-                <button type="submit">Guardar Cambios</button>
-                <button onClick={onCancelEditProfile}>Salir</button>
+                <button className={style.Enviar} type="submit">
+                    Guardar Cambios
+                </button>
+                <button className={style.Volver} onClick={onCancelEditProfile}>
+                    Salir
+                </button>
             </form>
 
             <ChangePasswordModal
