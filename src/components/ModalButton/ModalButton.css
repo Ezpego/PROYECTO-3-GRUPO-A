@@ -2,28 +2,26 @@
   text-align: center;
 }
 
-/* .modal-button {
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: url("filter.jpg") no-repeat center center;
-    background-size: 50px;
-  } */
+.modal-content {
+  background-color: #fefefe;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fefefe;
+  margin-bottom: 70px;
+  background-image: url("/public/images/cintas.jpg");
+  background-size: cover;
+  border-radius: 8px;
 
-  .modal-content {
-    background-color: #fefefe;
-    padding: 150px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    color: #fefefe;
-    margin-bottom: 70px;
-    background-image: url("/public/images/cintas.jpg");
-    background-size: cover;
-  }
+  border: 5px solid rgb(42, 82, 63);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .modal-content label {
   text-align: center;
@@ -47,15 +45,26 @@ h2 {
   font-size: 2em;
   margin-top: 20px;
   margin-bottom: 50px;
+  color: white;
 }
 
 select {
-  width: 25%;
-  padding: 5px 1px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 0.8em;
+  height: 37px;
   margin-top: 5px;
+  margin-bottom: 5px;
+
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.45);
+  color: white;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+select option {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 select:focus {
@@ -64,16 +73,16 @@ select:focus {
 }
 
 button {
-  background-color: white;
-  color: black;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: rgba(42, 82, 63);
+  color: white;
+
   border: none;
-  border-radius: 5px;
-  padding: 5px 20px;
-  font-size: 1em;
-  margin-top: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 label {
   font-size: 20px;
+  color: white;
 }

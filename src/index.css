@@ -5,9 +5,8 @@
 }
 
 #main-content {
-  margin-bottom: 46px;
+  margin: 0px;
   background-image: url("/public/images/cintas.jpg");
   background-size: cover;
   min-height: 100dvh;
-  margin-top: 0;
 }

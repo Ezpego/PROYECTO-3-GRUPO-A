@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import Modal from "react-modal";
 import PropTypes from "prop-types";
 import TokenContext from "../../context/TokenContext";
+import "./ChangePasswordModal.css";
 
 Modal.setAppElement("#root");
 
@@ -179,6 +180,7 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
             <label>
               Contraseña Actual:
               <input
+                className="inputPass"
                 type="password"
                 name="currentPassword"
                 value={passwordData.currentPassword}
@@ -191,6 +193,7 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
             <label>
               Nueva Contraseña:
               <input
+                className="inputPass"
                 type="password"
                 name="newPassword"
                 value={passwordData.newPassword}
@@ -203,6 +206,7 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
             <label>
               Repetir Nueva Contraseña:
               <input
+                className="inputPass"
                 type="password"
                 name="repeatNewPassword"
                 value={passwordData.repeatNewPassword}
@@ -212,8 +216,12 @@ const ChangePasswordModal = ({ isOpen, onClose }) => {
               <span className="error">{errors.repeatNewPassword}</span>
             </label>
 
-            <button type="submit">Cambiar Contraseña</button>
-            <button onClick={onClose}>Cancelar</button>
+            <button className="buttonPass" type="submit">
+              Cambiar Contraseña
+            </button>
+            <button className="buttonPass" onClick={onClose}>
+              Cancelar
+            </button>
             {errors.general && <div className="error">{errors.general}</div>}
           </form>
         </>
