@@ -104,7 +104,7 @@ const ModalButton = ({ buttonContext }) => {
 
   return (
     <div className="modal-button-container">
-      <CiFilter className="modal-button" onClick={openModal}>
+      <CiFilter className="modal-button whiteFill" onClick={openModal}>
         {buttonContext}
       </CiFilter>
       <Modal

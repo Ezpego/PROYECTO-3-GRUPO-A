@@ -11,19 +11,20 @@
     background-size: 50px;
   } */
 
-  .modal-content {
-    background-color: #fefefe;
-    padding: 150px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    color: #fefefe;
-    margin-bottom: 70px;
-    background-image: url("/public/images/cintas.jpg");
-    background-size: cover;
-  }
+.modal-content {
+  background-color: #fefefe;
+  padding: 150px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fefefe;
+  margin-bottom: 70px;
+  background-image: url("/public/images/cintas.jpg");
+  background-size: cover;
+  border: 5px solid rgb(42, 82, 63);
+}
 
 .modal-content label {
   text-align: center;
