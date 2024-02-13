@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import TokenContext from "../../../context/TokenContext";
 import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
+import style from "./DeleteUserButton.module.css";
 
 const DeleteUserButton = ({ id }) => {
     const [modalIsOpen, setModalisOpen] = useState(false);
@@ -43,9 +44,11 @@ const DeleteUserButton = ({ id }) => {
     };
     return (
         <>
-            <button onClick={handleOpenModal}>Eliminar Usuario</button>
+            <button className={style.eliminarUsuario} onClick={handleOpenModal}>
+                Eliminar Usuario
+            </button>
             <Modal
-                className="deleteuser"
+                className={style.modalContent}
                 isOpen={modalIsOpen}
                 onRequestClose={handleCloseModal}
                 contentLabel="Eliminación de usuario"

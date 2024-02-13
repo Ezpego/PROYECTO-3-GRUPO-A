@@ -14,35 +14,35 @@ import FormExercisesEditer from "./components/ExercisesForm/ExercisesFormEditer.
 
 function App() {
     return (
-        <div id="main-content">
-            {/* <UserProvider>   */}
+        <>
             <header>
                 <h1>GymJoy</h1>
             </header>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/users/register" element={<RegisterPage />} />
-                <Route
-                    path="/users/forgottenPassword"
-                    element={<ForgottenPage />}
-                />
-                <Route
-                    path="/users/reactivate_account"
-                    element={<ReactivatePage />}
-                />
-                <Route path="/exercises/" element={<AdminPage />} />
-                <Route
-                    path="/user/:userId/editProfile"
-                    element={<ProfilePage />}
-                />
-                <Route
-                    path="/exercises/edited"
-                    element={<FormExercisesEditer />}
-                />
-            </Routes>
+            <div id="main-content">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/users/register" element={<RegisterPage />} />
+                    <Route
+                        path="/users/forgottenPassword"
+                        element={<ForgottenPage />}
+                    />
+                    <Route
+                        path="/users/reactivate_account"
+                        element={<ReactivatePage />}
+                    />
+                    <Route path="/exercises/" element={<AdminPage />} />
+                    <Route
+                        path="/user/:userId/editProfile"
+                        element={<ProfilePage />}
+                    />
+                    <Route
+                        path="/exercises/edited"
+                        element={<FormExercisesEditer />}
+                    />
+                </Routes>
+            </div>
             <Footer />
-            {/* </UserProvider>   */}
-        </div>
+        </>
     );
 }
 

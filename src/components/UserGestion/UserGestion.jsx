@@ -283,7 +283,9 @@ const UserGestion = ({ setCurrentComponent }) => {
                                 />
                             </label>
                             {useData.isEnabled === 1 ? (
-                                <button type="submit">Editar</button>
+                                <button className={style.Enviar} type="submit">
+                                    Editar
+                                </button>
                             ) : (
                                 <p className={style.error}>
                                     Para editar, debe reactivar el usuario
@@ -291,8 +293,8 @@ const UserGestion = ({ setCurrentComponent }) => {
                             )}
 
                             <button
+                                className={style.Volver}
                                 onClick={() => setCurrentComponent(null)}
-                                style={{ color: "red", marginLeft: "50px" }}
                             >
                                 Volver
                             </button>

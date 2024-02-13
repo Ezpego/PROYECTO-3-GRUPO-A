@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     /* overflow: hidden; */
 }
 
@@ -20,13 +21,16 @@
     align-items: center;
     flex-direction: column;
     margin: 0px;
-    background-image: url("/public/images/cintas.jpg");
+
+    background-image: url("/images/cintas.jpg");
     background-size: cover;
     min-height: 100dvh;
     background-attachment: fixed;
 }
 
 header {
+    position: fixed;
+
     width: 100%;
     background-color: rgb(42, 82, 63);
     border-bottom: 2px solid black;

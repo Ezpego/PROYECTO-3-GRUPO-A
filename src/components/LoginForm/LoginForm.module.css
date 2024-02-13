@@ -62,7 +62,7 @@
     padding: 6px 8px;
     margin-top: 5px;
     margin-bottom: 5px;
-    box-sizing: border-box;
+
     border: none;
     outline: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.45);
@@ -74,6 +74,18 @@
 }
 
 .Enviar {
+    /* width: 100%; */
+    padding: 10px;
+    background-color: rgba(42, 82, 63);
+    color: black;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px rgb(42, 82, 63);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.eliminarUsuario {
     /* width: 100%; */
     padding: 10px;
     background-color: rgba(42, 82, 63);
@@ -99,8 +111,9 @@
     width: 100%;
     margin-top: 15px;
     padding: 10px;
-    background-color: rgb(236, 242, 244);
+    background-color: rgba(42, 82, 63);
     color: black;
+    font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -109,8 +122,10 @@
 .error {
     color: red;
     margin-top: 10px;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 18px;
+    /* font-weight: bold; */
+    letter-spacing: 1px;
+    text-wrap: pretty;
 }
 
 .center {

@@ -6,7 +6,7 @@
     height: 60px;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+
     transition: 0.5s ease-in-out;
 }
 .estructura:hover {
@@ -20,11 +20,11 @@
     font-size: 20px;
     border: none;
     outline: none;
-
-    background-color: transparent;
+    border-radius: 8px;
+    background-color: rgba(255, 253, 253, 0.451);
 }
 .inputBuscador::placeholder {
-    color: grey;
+    color: rgb(47, 47, 47);
 }
 
 .lupa {
@@ -95,6 +95,7 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 25%;
 }
 
 .imgForm {
@@ -103,12 +104,13 @@ button {
     margin-bottom: 20px;
 }
 .form {
-    max-width: 300px;
+    max-width: 100%;
     margin: auto;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(42, 82, 63);
+    background-color: rgba(255, 253, 253, 0.451);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgb(42, 82, 63);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,8 +128,10 @@ button {
     margin-bottom: 10px;
     font-weight: bold;
     text-align: left;
+    width: 100%;
     align-self: flex-start;
     margin-right: auto;
+    font-size: 20px;
 }
 
 .label.passwordLabel {
@@ -139,16 +143,19 @@ button {
 }
 
 .input {
-    width: 300px;
+    width: 100%;
     padding: 6px 8px;
     margin-top: 5px;
     margin-bottom: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.45);
     color: black;
     max-height: 40px;
     overflow: auto;
+    background: transparent;
+    font-size: 20px;
 }
 .select {
     width: 100%;
@@ -198,13 +205,13 @@ button {
 }
 
 .Enviar {
-    width: 100%;
-    margin: 0;
     padding: 10px;
-    background-color: #3897f0;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+    background-color: rgba(42, 82, 63);
+    color: black;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px rgb(42, 82, 63);
+    border-radius: 8px;
     cursor: pointer;
 }
 .register {
@@ -218,13 +225,13 @@ button {
 }
 
 .Volver {
-    width: 100%;
     margin-top: 15px;
     padding: 10px;
-    background-color: rgb(236, 242, 244);
+    background-color: rgba(42, 82, 63);
     color: black;
+    font-weight: bold;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
