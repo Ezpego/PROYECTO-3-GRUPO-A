@@ -52,6 +52,7 @@ const LoginForm = () => {
                             email
                             <input
                                 className={style.input}
+                                autoComplete="off"
                                 type="email"
                                 id="email"
                                 onChange={(e) => {
@@ -68,6 +69,7 @@ const LoginForm = () => {
                             <input
                                 className={style.input}
                                 type="password"
+                                autoComplete="off"
                                 id="password"
                                 onChange={(e) => {
                                     setForm({

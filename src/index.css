@@ -25,3 +25,10 @@
     min-height: 100dvh;
     background-attachment: fixed;
 }
+
+header {
+    width: 100%;
+    background-color: rgb(42, 82, 63);
+    border-bottom: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}

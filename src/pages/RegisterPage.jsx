@@ -46,70 +46,73 @@ const RegisterPage = () => {
     };
 
     return (
-        <section className={style.registerContainer}>
-            <h1>Registro</h1>
-            <div>
-                <form className={style.form} onSubmit={handleForm}>
-                    <label className={style.label} htmlFor="name">
-                        Nombre
-                        <input
-                            className={style.input}
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                    </label>
+        <>
+            <div className={style.registerContainer}>
+                <div className={style.registerForm}>
+                    <form className={style.form} onSubmit={handleForm}>
+                        <label className={style.label} htmlFor="name">
+                            Nombre
+                            <input
+                                className={style.input}
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                onChange={(e) => setName(e.target.value)}
+                                autoComplete="off"
+                            />
+                        </label>
 
-                    <label className={style.label} htmlFor="email">
-                        Correo Electrónico
-                        <input
-                            className={style.input}
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </label>
+                        <label className={style.label} htmlFor="email">
+                            Correo Electrónico
+                            <input
+                                className={style.input}
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                onChange={(e) => setEmail(e.target.value)}
+                                autoComplete="off"
+                            />
+                        </label>
 
-                    <label className={style.label} htmlFor="password">
-                        Contraseña
-                        <input
-                            className={style.input}
-                            type="password"
-                            id="password"
-                            name="password"
-                            required
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </label>
+                        <label className={style.label} htmlFor="password">
+                            Contraseña
+                            <input
+                                className={style.input}
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </label>
 
-                    <label className={style.label} htmlFor="password2">
-                        Repetir Contraseña
-                        <input
-                            className={style.input}
-                            type="password"
-                            id="password2"
-                            name="password2"
-                            required
-                            onChange={(e) => setPassword2(e.target.value)}
-                        />
-                    </label>
+                        <label className={style.label} htmlFor="password2">
+                            Repetir Contraseña
+                            <input
+                                className={style.input}
+                                type="password"
+                                id="password2"
+                                name="password2"
+                                required
+                                onChange={(e) => setPassword2(e.target.value)}
+                            />
+                        </label>
 
-                    {!error ? (
-                        <p className={style.p}>
-                            La contraseña debe contener al menos una mayúscula ,
-                            un nº y 8 caracteres.
-                        </p>
-                    ) : (
-                        <p className={style.p}>{error}</p>
-                    )}
-                    <button>Enviar</button>
-                </form>
+                        {!error ? (
+                            <p className={style.p}>
+                                La contraseña debe contener al menos una
+                                mayúscula , un nº y 8 caracteres.
+                            </p>
+                        ) : (
+                            <p className={style.error}>{error}</p>
+                        )}
+                        <button className={style.Enviar}>Enviar</button>
+                    </form>
+                </div>
             </div>
-        </section>
+        </>
     );
 };
 

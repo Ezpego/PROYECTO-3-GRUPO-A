@@ -1,19 +1,3 @@
-/*
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.loginform {
-    display: flex;
-    flex-direction: column;
-}
-
-*/
 .registerContainer {
     display: flex;
     flex-direction: column;
@@ -21,11 +5,12 @@
     align-items: center;
     height: 100dvh;
 }
-.loginForm {
+.registerForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 25%;
 }
 
 .imgForm {
@@ -34,12 +19,13 @@
     margin-bottom: 20px;
 }
 .form {
-    max-width: 300px;
+    max-width: 100%;
     margin: auto;
     padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(42, 82, 63);
+    background-color: rgba(255, 253, 253, 0.451);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgb(42, 82, 63);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,9 +43,10 @@
     margin-bottom: 10px;
     font-weight: bold;
     text-align: left;
-
+    width: 100%;
     align-self: flex-start;
     margin-right: auto;
+    font-size: 20px;
 }
 
 .label.passwordLabel {
@@ -76,38 +63,45 @@
     margin-top: 5px;
     margin-bottom: 5px;
     box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.45);
     color: black;
     max-height: 40px;
     overflow: auto;
+    background: transparent;
+    font-size: 20px;
 }
-.p {
-    background-color: #f6dee1ac;
-    color: #942a34;
-    padding: 10px;
 
+.p {
+    color: black;
+    padding: 10px;
+    font-weight: bold;
     border-radius: 5px;
     margin-top: 10px;
     font-size: 14px;
+    max-width: 300px;
 }
 
 .Enviar {
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
-    background-color: #3897f0;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+    background-color: rgba(42, 82, 63);
+    color: black;
+    font-weight: bold;
+
+    box-shadow: 0 0 10px rgb(42, 82, 63);
+    border-radius: 8px;
     cursor: pointer;
 }
 .register {
     width: 50%;
     padding: 10px;
-    background-color: #30ba24;
-    color: #fff;
+    background-color: rgba(42, 82, 63);
+    color: black;
+    font-weight: bold;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
@@ -125,7 +119,11 @@
 .error {
     color: red;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 18px;
+    /* font-weight: bold; */
+    letter-spacing: 1px;
+    text-wrap: pretty;
+    max-width: 300px;
 }
 
 .center {
@@ -148,7 +146,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    form {
+    .form {
         max-width: 100%;
         padding: 15px;
         margin-top: 10px;
