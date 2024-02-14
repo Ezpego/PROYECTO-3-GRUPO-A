@@ -106,6 +106,7 @@ const ReactivatePage = () => {
                         <label className={style.label}>
                             Codigo:
                             <input
+                                autoComplete="off"
                                 className={style.input}
                                 type="text"
                                 name="codigo"
