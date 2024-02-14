@@ -86,7 +86,7 @@ const LoginForm = () => {
                         {errorMessage && (
                             <p className={style.error}>{errorMessage}</p>
                         )}
-                        <button className={style.Enviar}>Login</button>
+                        <button className={style.Login}>Login</button>
                     </form>
 
                     <p

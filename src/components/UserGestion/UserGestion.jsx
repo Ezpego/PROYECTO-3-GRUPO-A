@@ -147,7 +147,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                             />
                         </form>
                         {error && (
-                            <p style={{ color: "red" }}>
+                            <p className={style.error}>
                                 El usuario no existe en la base de datos
                             </p>
                         )}
@@ -170,13 +170,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                 />
                             </label>
                             {errors.name && (
-                                <span
-                                    style={{
-                                        color: "red",
-                                        fontSize: "0.8em",
-                                        marginRight: "5px",
-                                    }}
-                                >
+                                <span className={style.error}>
                                     Este campo es obligatorio
                                 </span>
                             )}
@@ -230,13 +224,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                 />
                             </label>
                             {errors.email && (
-                                <span
-                                    style={{
-                                        color: "red",
-                                        fontSize: "0.8em",
-                                        marginRight: "5px",
-                                    }}
-                                >
+                                <span className={style.error}>
                                     Este campo es obligatorio
                                 </span>
                             )}

@@ -312,7 +312,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                         Cambiar Contraseña
                     </button>
                     {formErrors && formErrors.includes("Password") && (
-                        <div className="error-message">{formErrors}</div>
+                        <div className={style.error}>{formErrors}</div>
                     )}
                 </div>
 
@@ -352,7 +352,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                     />
                 )}
 
-                <button className={style.Enviar} type="submit">
+                <button className={style.guardarCambios} type="submit">
                     Guardar Cambios
                 </button>
                 <button className={style.Volver} onClick={onCancelEditProfile}>
