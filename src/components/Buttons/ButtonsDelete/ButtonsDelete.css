@@ -1,0 +1,28 @@
+.modalContent {
+    background-color: #fefefe;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fefefe;
+    margin-bottom: 70px;
+    background-image: url("/public/images/cintas.jpg");
+    background-size: cover;
+    border-radius: 8px;
+
+    border: 5px solid rgb(42, 82, 63);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.buttonSi {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.buttonNo {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}

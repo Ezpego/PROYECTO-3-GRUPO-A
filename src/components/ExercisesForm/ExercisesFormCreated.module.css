@@ -23,12 +23,6 @@
     text-align: left;
 }
 
-.labelContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .label {
     display: block;
     margin-bottom: 10px;
@@ -38,14 +32,6 @@
     align-self: flex-start;
     margin-right: auto;
     font-size: 20px;
-}
-
-.label.passwordLabel {
-    margin-left: 0;
-}
-
-.buttonPassword {
-    margin-top: -8px;
 }
 
 .input {
@@ -90,27 +76,6 @@
     background-color: transparent;
 }
 
-.h3 {
-    background-color: #ffffff32;
-    color: #1500ff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 10px;
-    font-size: 20px;
-    text-wrap: balance;
-}
-.p {
-    margin: 0px;
-    margin-bottom: 15px;
-    padding: 5px;
-    text-wrap: pretty;
-    font-size: 16px;
-    color: #333;
-    border: solid black 1px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.437);
-}
-
 .Enviar {
     padding: 10px;
     background-color: rgba(42, 82, 63);
@@ -118,16 +83,6 @@
     font-weight: bold;
 
     box-shadow: 0 0 10px rgb(42, 82, 63);
-    border-radius: 8px;
-    cursor: pointer;
-}
-.register {
-    width: 50%;
-    padding: 10px;
-    background-color: rgba(42, 82, 63);
-    color: black;
-    font-weight: bold;
-    border: none;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -152,35 +107,20 @@
     text-wrap: pretty;
 }
 
-.center {
-    color: grey;
-    text-align: center;
-}
-
-.link {
-    text-decoration: none;
-    text-align: center;
-    display: block;
-}
-
-.forgotpassword {
-    cursor: pointer;
-    color: #d5c36b;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* @media only screen and (max-width: 600px) {
+@media only screen and (min-width: 600px) and (min-height: 750px) {
     .form {
-        max-width: 100%;
-        padding: 15px;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        width: 450px;
+        margin: auto;
+        margin-left: 8px;
+        margin-right: 8px;
+        padding: 20px;
+        border: 2px solid rgb(42, 82, 63);
+        background-color: rgba(255, 253, 253, 0.451);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgb(42, 82, 63);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
     }
-
-    .Enviar,
-    .Volver {
-        padding: 3vw;
-    }
-} */
+}

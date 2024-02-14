@@ -54,10 +54,17 @@ const DeleteUserButton = ({ id }) => {
                 contentLabel="Eliminación de usuario"
             >
                 <strong>
-                    Esta acción es irreversible. ¿Está seguro/a de continuar?
+                    Esta acción es irreversible.<br></br> ¿Está seguro/a de
+                    continuar?
                 </strong>
-                <button onClick={handleDeleteButton}>SI</button>
-                <button onClick={handleCloseModal}>NO</button>
+                <br></br>
+                <button className={style.buttonSi} onClick={handleDeleteButton}>
+                    SI
+                </button>
+
+                <button className={style.buttonNo} onClick={handleCloseModal}>
+                    NO
+                </button>
             </Modal>
         </>
     );
