@@ -94,7 +94,7 @@ const UserGestion = ({ setCurrentComponent }) => {
 
         const formDataToSend = new FormData();
         if (data.profile_image_url && data.profile_image_url.length > 0) {
-            formDataToSend.append("photo", data.profile_image_url[0]);
+            formDataToSend.append("photo", imageFile);
         }
         if (data.birth_date && data.birth_date.length > 0) {
             formDataToSend.append("birth_date", data.birth_date);
@@ -136,6 +136,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                             onSubmit={handleSearchClick}
                         >
                             <input
+                                autoComplete="off"
                                 className={style.inputBuscador}
                                 type="text"
                                 placeholder="Email usuario"
@@ -167,6 +168,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     type="text"
                                     {...register("name", { required: true })}
                                     maxLength={30}
+                                    autoComplete="off"
                                 />
                             </label>
                             {errors.name && (
@@ -182,6 +184,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     type="text"
                                     {...register("last_name")}
                                     maxLength={50}
+                                    autoComplete="off"
                                 />
                             </label>
 
@@ -192,6 +195,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     type="text"
                                     {...register("dni")}
                                     maxLength={20}
+                                    autoComplete="off"
                                 />
                             </label>
 
@@ -211,6 +215,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     type="tel"
                                     {...register("phone_number")}
                                     maxLength={20}
+                                    autoComplete="off"
                                 />
                             </label>
 
@@ -221,6 +226,7 @@ const UserGestion = ({ setCurrentComponent }) => {
                                     type="email"
                                     {...register("email", { required: true })}
                                     maxLength={50}
+                                    autoComplete="off"
                                 />
                             </label>
                             {errors.email && (

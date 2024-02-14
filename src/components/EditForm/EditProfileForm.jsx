@@ -226,6 +226,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                 <label className={style.label}>
                     Nombre:
                     <input
+                        autoComplete="off"
                         className={style.input}
                         type="text"
                         name="name"
@@ -238,6 +239,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                 <label className={style.label}>
                     Apellido:
                     <input
+                        autoComplete="off"
                         className={style.input}
                         type="text"
                         name="last_name"
@@ -249,6 +251,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                 <label className={style.label}>
                     DNI:
                     <input
+                        autoComplete="off"
                         className={style.input}
                         type="text"
                         name="dni"
@@ -318,6 +321,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                         name="phone_number"
                         value={editedData.phone_number}
                         onChange={handleChange}
+                        autoComplete="off"
                     />
                 </label>
 

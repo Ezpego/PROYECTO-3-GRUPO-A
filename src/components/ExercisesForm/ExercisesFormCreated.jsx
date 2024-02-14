@@ -52,14 +52,14 @@ const FormExercises = () => {
 
     const onSubmit = (data) => {
         console.log("Datos: ", data);
-        console.log(data.photo[0]);
+        console.log(imageFile);
         const sendExercice = async () => {
             const urlObjetivo = "/exercises";
             const opciones = {
                 authorization: `${token}`,
             };
             const formDataToSend = new FormData();
-            formDataToSend.append("photo", data.photo[0]);
+            formDataToSend.append("photo", imageFile);
             Object.entries(data).forEach(([key, value]) => {
                 if (key !== "photo") {
                     formDataToSend.append(key, value);
@@ -91,6 +91,7 @@ const FormExercises = () => {
                         type="text"
                         {...register("name", { required: true })}
                         maxLength={30}
+                        autoComplete="off"
                     />
                 </label>
                 {errors.name && (
