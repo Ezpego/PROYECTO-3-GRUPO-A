@@ -108,10 +108,10 @@ const UserGestion = ({ setCurrentComponent }) => {
 
         try {
             const response = await fetch(
-                `${urlRaiz}/user/${data.id}/editProfile`,
+                `${urlRaiz}/userGestion/${data.id}/editProfile`,
                 {
                     method: "PATCH",
-                    headers: { authorization: `${data.current_token}` },
+                    headers: { authorization: `${token}` },
                     body: formDataToSend,
                 }
             );

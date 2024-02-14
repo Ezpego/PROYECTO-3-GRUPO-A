@@ -6,58 +6,67 @@ import Modal from "react-modal";
 import "./ButtonsDelete.css";
 
 const ButtonsDelete = ({ id, exercises, setExercises }) => {
-  const [modalIsOpen, setModalisOpen] = useState(false);
-  const { token } = useContext(TokenContext);
+    const [modalIsOpen, setModalisOpen] = useState(false);
+    const { token } = useContext(TokenContext);
 
-  const handleOpenModal = (e) => {
-    console.log(e.target);
-    console.log("este es el id", id);
-    setModalisOpen(true);
-  };
+    const handleOpenModal = (e) => {
+        console.log(e.target);
+        console.log("este es el id", id);
+        setModalisOpen(true);
+    };
 
-  const handleCloseModal = () => {
-    setModalisOpen(false);
-  };
-  const handleEraseButton = async (e) => {
-    try {
-      const options = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `${token}`,
-        },
-        body: null,
-      };
+    const handleCloseModal = () => {
+        setModalisOpen(false);
+    };
+    const handleEraseButton = async (e) => {
+        try {
+            const options = {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: `${token}`,
+                },
+                body: null,
+            };
 
-      const deleteResponse = await receiveExerciseList(
-        `/exercises/${id}`,
-        options
-      );
-      setModalisOpen(false);
-      const newExercises = exercises.filter((exercise) => exercise.id !== id);
-      setExercises(newExercises);
-      console.log("respuesta borrado ", deleteResponse);
-    } catch (error) {
-      console.error("Error al cargar datos: ", error);
-      setModalisOpen(false);
-    }
-  };
+            const deleteResponse = await receiveExerciseList(
+                `/exercises/${id}`,
+                options
+            );
+            setModalisOpen(false);
+            const newExercises = exercises.filter(
+                (exercise) => exercise.id !== id
+            );
+            setExercises(newExercises);
+            console.log("respuesta borrado ", deleteResponse);
+        } catch (error) {
+            console.error("Error al cargar datos: ", error);
+            setModalisOpen(false);
+        }
+    };
 
-  return (
-    <>
-      <RiDeleteBin6Line className="buttonsdelete" onClick={handleOpenModal} />
-      <Modal
-        className="buttonsdelete"
-        isOpen={modalIsOpen}
-        onRequestClose={handleCloseModal}
-        contentLabel="Eliminacion Ejercicio"
-      >
-        <p>Seguro que quieres borrar el ejercicio</p>
-        <button onClick={handleEraseButton}>Si con toda mi fuerza</button>
-        <button onClick={handleCloseModal}>No me he hecho caquita</button>
-      </Modal>
-    </>
-  );
+    return (
+        <>
+            <RiDeleteBin6Line
+                className="buttonsdelete"
+                onClick={handleOpenModal}
+            />
+            <Modal
+                className="modalContent "
+                isOpen={modalIsOpen}
+                onRequestClose={handleCloseModal}
+                contentLabel="Eliminacion Ejercicio"
+            >
+                <p>Seguro que quieres borrar el ejercicio</p>
+                <button className="buttonSi" onClick={handleEraseButton}>
+                    Si
+                </button>
+                <button className="buttonNo" onClick={handleCloseModal}>
+                    No
+                </button>
+            </Modal>
+        </>
+    );
 };
 
 export default ButtonsDelete;

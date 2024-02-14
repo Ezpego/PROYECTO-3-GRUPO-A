@@ -27,10 +27,7 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
         password: userData?.password || "",
         phone_number: userData?.phone_number || "",
         photo: userData?.profile_image_url || "",
-        isAdministrator: userData?.isAdministrator,
     });
-
-    console.log("Es admin?", editedData.isAdministrator);
 
     useEffect(() => {
         setFormErrors(errors);
@@ -45,7 +42,6 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                 password: "",
                 phone_number: editedData.phone_number || "",
                 photo: editedData.profile_image_url || "",
-                isAdministrator: editedData.isAdministrator,
             });
         } else {
             // ECHAR UN OJO AL WARNING QUE PONE EN LA LINEA 55
@@ -58,7 +54,6 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
                 password: "",
                 phone_number: userData?.phone_number || "",
                 photo: userData?.profile_image_url || "",
-                isAdministrator: userData?.isAdministrator,
             });
         }
     }, [userData, errors]);
@@ -155,7 +150,6 @@ const EditProfileForm = ({ onUpdateProfile, onCancelEditProfile, errors }) => {
         formData.append("password", editedData.password.trim());
         formData.append("phone_number", editedData.phone_number);
         formData.append("photo", selectedFile);
-        formData.append("isAdministrator", editedData.isAdministrator);
 
         try {
             await onUpdateProfile(userId, formData);
