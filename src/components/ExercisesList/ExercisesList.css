@@ -1,0 +1,21 @@
+.exercise-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.notExercisesBox {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: rgba(255, 253, 253, 0.451);
+  border-radius: 2px;
+}
+
+.loadingExercisesBox {
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: rgba(255, 253, 253, 0.451);
+  border-radius: 2px;
+}

@@ -4,103 +4,105 @@ import UserProfileDetails from "../components/UserProfileDetails/UserProfileDeta
 import TokenContext from "../context/TokenContext";
 
 const ProfilePage = () => {
-    const [showEditForm, setShowEditForm] = useState(false);
-    const [showUserProfile, setShowUserProfile] = useState(true);
-    const [updateProfileError, setUpdateProfileError] = useState(null);
-    const { token, setToken } = useContext(TokenContext);
+  const [showEditForm, setShowEditForm] = useState(false);
+  const [showUserProfile, setShowUserProfile] = useState(true);
+  const [updateProfileError, setUpdateProfileError] = useState(null);
+  const { token, setToken, setFilterSelected } = useContext(TokenContext);
 
-    const handleEditButtonClick = () => {
-        setShowEditForm(true);
-        setShowUserProfile(false);
-    };
+  useEffect(() => {
+    setFilterSelected({
+      muscleGroup: "",
+      exerciseType: "",
+      difficulty_level: "",
+      like: false,
+      favorite: false,
+    });
+  }, []);
 
-    const handleCancelButtonClick = () => {
-        setShowEditForm(false);
-        setUpdateProfileError(null);
-        setShowUserProfile(true);
-    };
+  const handleEditButtonClick = () => {
+    setShowEditForm(true);
+    setShowUserProfile(false);
+  };
 
-    const handleUpdateProfile = async (userId, formData) => {
-        console.log("userid de handleprofile : ", userId);
-        console.log("datitaa", formData.get("name"));
-        console.log("token de handleprofile :", token);
-        const urlRaiz = import.meta.env.VITE_REACT_APP_URL_RAIZ;
+  const handleCancelButtonClick = () => {
+    setShowEditForm(false);
+    setUpdateProfileError(null);
+    setShowUserProfile(true);
+  };
 
-        let errorData = {};
+  const handleUpdateProfile = async (userId, formData) => {
+    console.log("userid de handleprofile : ", userId);
+    console.log("datitaa", formData.get("name"));
+    console.log("token de handleprofile :", token);
+    const urlRaiz = import.meta.env.VITE_REACT_APP_URL_RAIZ;
 
-        try {
-            const response = await fetch(
-                `${urlRaiz}/user/${userId}/editProfile`,
-                {
-                    method: "PATCH",
-                    headers: {
-                        Authorization: `${token}`,
-                    },
-                    body: formData,
-                }
-            );
-            console.log("formData enviado en la solicitud:", formData);
+    let errorData = {};
 
-            if (response.ok) {
-                const data = await response.json();
+    try {
+      const response = await fetch(`${urlRaiz}/user/${userId}/editProfile`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `${token}`,
+        },
+        body: formData,
+      });
+      console.log("formData enviado en la solicitud:", formData);
 
-                console.log("newToken", data.newToken);
-                if (data.newToken) {
-                    localStorage.setItem("token", data.newToken);
-                    setToken(data.newToken);
-                }
-                console.log("DATA RESPONSE DANI", data);
-                console.log("Perfil actualizado con éxito");
-                setShowEditForm(false);
-                setShowUserProfile(true);
-                setUpdateProfileError(null);
-            } else {
-                try {
-                    const responseData = await response.text();
-                    console.log("Respuesta del servidor:", responseData);
-                    errorData = responseData ? JSON.parse(responseData) : {};
-                    console.log("ErrorData profilepage : ", errorData);
-                    throw new Error(
-                        errorData.message || "Error al actualizar el perfil"
-                    );
-                } catch (error) {
-                    console.error(
-                        "Error al analizar la respuesta JSON:",
-                        error
-                    );
-                    throw new Error("Error al actualizar el perfil");
-                }
-            }
-        } catch (error) {
-            console.error("Error de red:", error);
-            if (error instanceof Response && error.status === 422) {
-                const errorData = await error.response.json();
-                setUpdateProfileError(errorData.errors);
-            } else {
-                setUpdateProfileError(errorData.message);
-            }
+      if (response.ok) {
+        const data = await response.json();
+
+        console.log("newToken", data.newToken);
+        if (data.newToken) {
+          localStorage.setItem("token", data.newToken);
+          setToken(data.newToken);
         }
-    };
+        console.log("DATA RESPONSE DANI", data);
+        console.log("Perfil actualizado con éxito");
+        setShowEditForm(false);
+        setShowUserProfile(true);
+        setUpdateProfileError(null);
+      } else {
+        try {
+          const responseData = await response.text();
+          console.log("Respuesta del servidor:", responseData);
+          errorData = responseData ? JSON.parse(responseData) : {};
+          console.log("ErrorData profilepage : ", errorData);
+          throw new Error(errorData.message || "Error al actualizar el perfil");
+        } catch (error) {
+          console.error("Error al analizar la respuesta JSON:", error);
+          throw new Error("Error al actualizar el perfil");
+        }
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+      if (error instanceof Response && error.status === 422) {
+        const errorData = await error.response.json();
+        setUpdateProfileError(errorData.errors);
+      } else {
+        setUpdateProfileError(errorData.message);
+      }
+    }
+  };
 
-    console.log("Rendering ProfilePage:", showEditForm, showUserProfile);
+  console.log("Rendering ProfilePage:", showEditForm, showUserProfile);
 
-    return (
-        <>
-            {showEditForm && (
-                <EditProfileForm
-                    onUpdateProfile={handleUpdateProfile}
-                    onCancelEditProfile={handleCancelButtonClick}
-                    errors={updateProfileError}
-                />
-            )}
+  return (
+    <>
+      {showEditForm && (
+        <EditProfileForm
+          onUpdateProfile={handleUpdateProfile}
+          onCancelEditProfile={handleCancelButtonClick}
+          errors={updateProfileError}
+        />
+      )}
 
-            {showUserProfile && !showEditForm && (
-                <UserProfileDetails
-                    onEditProfileClick={() => handleEditButtonClick()}
-                />
-            )}
-        </>
-    );
+      {showUserProfile && !showEditForm && (
+        <UserProfileDetails
+          onEditProfileClick={() => handleEditButtonClick()}
+        />
+      )}
+    </>
+  );
 };
 
 export default ProfilePage;
