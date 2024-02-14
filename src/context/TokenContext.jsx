@@ -8,7 +8,13 @@ export const TokenProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [userData, setUserData] = useState("");
-  const [filterSelected, setFilterSelected] = useState(""); // añadido para filtro ejercicios
+  const [filterSelected, setFilterSelected] = useState({
+    muscleGroup: "",
+    exerciseType: "",
+    difficulty_level: "",
+    like: false,
+    favorite: false,
+  }); // añadido para filtro ejercicios
   // *AÑADIDO EZEQUIEL ESTADO PARA MANEJAR LOS ERRORES
   const [error, setError] = useState(null);
   // *AÑADIDO EZEQUIEL URLRAIZ DEL .ENV

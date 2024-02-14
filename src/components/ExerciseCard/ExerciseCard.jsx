@@ -6,6 +6,7 @@ import ButtonsFavourite from "../Buttons/ButtonsFavourite/ButtonsFavourite";
 import ButtonsLike from "../Buttons/ButtonsLike/ButtonsLike";
 import ButtonsDelete from "../Buttons/ButtonsDelete/ButtonsDelete";
 import ButtonsEdit from "../Buttons/ButtonsEdit/ButtonsEdit";
+import "./ExerciseCard.css";
 
 const ExerciseCard = ({
   id,
@@ -55,93 +56,80 @@ const ExerciseCard = ({
     setSeeMoreButton(!seeMoreButton);
   };
 
-  useEffect(() => {
-    // console.log(`Músculo: ${exerciseObj.muscle_group_name}`);
-    // console.log(`Tipología: ${exerciseObj.typology_name}`);
-  }, []);
-  // useEffect(() => {
-  //   const muscle = muscleGroupArray.find(
-  //     (muscle) => Number(muscle.id) === muscleType
-  //   );
-  //   const typology = typologyArray.find(
-  //     (typology) => Number(typology.id) === typologyType
-  //   );
-
-  //   console.log("muscle", muscle, muscleType);
-  //   console.log("typology", typology, typologyType);
-  // }, []);
-
   return (
-    <>
-      <div className="cardContainer exersiseCard">
-        <p>-----------------------------------------</p>
-        <img
-          src={image_url}
-          className="exersiseCard"
-          alt="imagen ejercicio"
-          width={100}
-        />
-        <h5 className="exersiseCard">{name}</h5>
-        <p>Dificultad: {`${difficulty_level}`}</p>
-
-        <p>
-          Grupo Muscular:{" "}
-          {exerciseObj.muscle_group_name
-            ? `${exerciseObj.muscle_group_name}`
-            : `no especificado`}
-        </p>
-
-        <p>
-          Tipologia:{" "}
-          {exerciseObj.typology_name
-            ? `${exerciseObj.typology_name}`
-            : `no especificado`}
-        </p>
-        <span>
-          <ButtonsLike
-            id={id}
-            fillLikeButton={fillLikeButton}
-            setFillLikeButton={setFillLikeButton}
-            updatedNumberLike={updatedNumberLike}
-            setUpdatedNumberLike={setUpdatedNumberLike}
-          />
-          <span>{`  ${updatedNumberLike} ${
-            updatedNumberLike < 2 ? "like " : "Likes "
-          }`}</span>
-        </span>
+    <div className="exercise-cards-container">
+      <img
+        src={image_url}
+        className="exerciseCardImage div1"
+        alt="imagen ejercicio"
+      />
+      <h4 className="exersiseCardTitle grid-item div2">&nbsp;{name}</h4>
+      <p className="exersiseCardDifficulty div3">
+        &nbsp;<strong>Dificultad: </strong>
+        {`${difficulty_level}`}
+      </p>
+      <p className="exersiseCardGroupMuscle grid-item div5">
+        &nbsp;<strong>G.Muscular:</strong>&nbsp;
+        {exerciseObj.muscle_group_name
+          ? `${exerciseObj.muscle_group_name}`
+          : `no especificado`}
+      </p>
+      <p className="exersiseCardTypology grid-item div6">
+        &nbsp;<strong>Tipologia:</strong>&nbsp;
+        {exerciseObj.typology_name
+          ? `${exerciseObj.typology_name} `
+          : `no especificado`}
+      </p>
+      <div className="exersiseCardButtonsSocial grid-item div4">
         <ButtonsFavourite
           id={id}
           fillFavouriteButton={fillFavouriteButton}
           setFillFavouriteButton={setFillFavouriteButton}
         />
-        {seeMoreButton ? (
-          <span>
-            <SlArrowDown
-              className="exersiseCard"
-              onClick={handleSeeMoreButton}
-            />
-            <span> Ver Mas</span>
-          </span>
-        ) : (
-          <span>
-            <SlArrowUp className="exersiseCard" onClick={handleSeeMoreButton} />
-            <span> Ver Menos</span>
-          </span>
-        )}
-        {!seeMoreButton && <span>{}</span>}
-        {!seeMoreButton && <p>{description}</p>}
-        {isAdmin && (
-          <div>
-            <ButtonsEdit exerciseObj={exerciseObj} />
-            <ButtonsDelete
-              id={id}
-              setExercises={setExercises}
-              exercises={exercises}
-            />
-          </div>
-        )}
+        &nbsp; &nbsp;
+        <ButtonsLike
+          id={id}
+          fillLikeButton={fillLikeButton}
+          setFillLikeButton={setFillLikeButton}
+          updatedNumberLike={updatedNumberLike}
+          setUpdatedNumberLike={setUpdatedNumberLike}
+        />
+        &nbsp;
+        <span> {`${updatedNumberLike}`}</span>
+        &nbsp;
       </div>
-    </>
+      {isAdmin && (
+        <div className="exerciseCardButtonsAdmin grid-item div8">
+          <ButtonsEdit exerciseObj={exerciseObj} />
+          &nbsp;&nbsp;
+          <ButtonsDelete
+            id={id}
+            setExercises={setExercises}
+            exercises={exercises}
+          />
+          &nbsp;
+        </div>
+      )}
+      {seeMoreButton ? (
+        <span className="exerciseCardButtonsMore grid-item div7">
+          &nbsp;
+          <SlArrowDown className="exersiseCard" onClick={handleSeeMoreButton} />
+          &nbsp;<span onClick={handleSeeMoreButton}> Ver Mas </span>&nbsp;
+        </span>
+      ) : (
+        <span className="exerciseCardButtonsMore grid-item div7">
+          &nbsp;
+          <SlArrowUp className="exersiseCard" onClick={handleSeeMoreButton} />
+          &nbsp;<span onClick={handleSeeMoreButton}> Ver Menos </span>&nbsp;
+        </span>
+      )}
+      &nbsp;
+      {!seeMoreButton && (
+        <p className="exerciseCardDescription grid-item div9">
+          &nbsp;{description}&nbsp;
+        </p>
+      )}
+    </div>
   );
 };
 
