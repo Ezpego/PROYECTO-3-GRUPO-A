@@ -1,78 +1,17 @@
-/* body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-form {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.loginform {
-    display: flex;
-    flex-direction: column;
-}
-
-*/
-.exercisesFormContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100dvh;
-}
-.exercisesForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 25%;
-}
-
 .imgForm {
     max-width: 100%;
     max-height: 200px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(42, 82, 63);
 }
 .form {
     /* max-width: 300px; */
     max-width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: 8px;
+    margin-right: 8px;
     padding: 20px;
     border: 2px solid rgb(42, 82, 63);
     background-color: rgba(255, 253, 253, 0.451);

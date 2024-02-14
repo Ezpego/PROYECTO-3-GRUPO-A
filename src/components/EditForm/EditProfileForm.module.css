@@ -2,12 +2,15 @@
     max-width: 100%;
     max-height: 200px;
     margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(42, 82, 63);
 }
 .form {
     max-width: 100%;
-    margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: 8px;
+    margin-right: 8px;
     padding: 20px;
     border: 2px solid rgb(42, 82, 63);
     background-color: rgba(255, 253, 253, 0.451);
@@ -36,10 +39,6 @@
     font-size: 20px;
     max-width: 300px;
     text-wrap: pretty;
-}
-
-.label.passwordLabel {
-    margin-left: 0;
 }
 
 .buttonPassword {
@@ -83,16 +82,7 @@
     font-size: 20px;
 }
 
-.p {
-    color: #e0ff72;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.Enviar {
+.guardarCambios {
     /* width: 100%; */
     padding: 10px;
     background-color: rgba(42, 82, 63);
@@ -117,16 +107,6 @@
     border-radius: 8px;
     cursor: pointer;
 }
-.register {
-    width: 50%;
-    padding: 10px;
-    background-color: rgba(42, 82, 63);
-    color: black;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
 
 .Volver {
     margin-top: 15px;
@@ -146,38 +126,4 @@
     /* font-weight: bold; */
     letter-spacing: 1px;
     text-wrap: pretty;
-}
-
-.center {
-    color: grey;
-    text-align: center;
-}
-
-.link {
-    text-decoration: none;
-    color: #e0ff72;
-    text-align: center;
-    display: block;
-}
-
-.forgotpassword {
-    cursor: pointer;
-    color: #e0ff72;
-    margin-top: 16px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media only screen and (max-width: 600px) {
-    .form {
-        max-width: 100%;
-        padding: 15px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .Enviar,
-    .Volver {
-        padding: 3vw;
-    }
 }
